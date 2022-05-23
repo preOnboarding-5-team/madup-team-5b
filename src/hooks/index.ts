@@ -1,3 +1,3 @@
-import useAtom from './useRecoil';
+import useRecoil from './useRecoil';
 
-export default useAtom;
+export default useRecoil;

@@ -1,0 +1,146 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/typography';
+
+.snb {
+  width: 320px;
+  height: 100%;
+  background: colors.$white;
+  box-shadow: 4px 0 10px rgb(0 0 0 / 4%);
+
+  .container {
+    height: 984px;
+    padding: 0 40px;
+
+    .logo {
+      height: 150px;
+      padding: 60px 0;
+    }
+
+    .line {
+      width: 240px;
+      height: 0;
+      border: 1px solid colors.$grey-50;
+    }
+
+    .menu {
+      padding: 40px 0;
+
+      .service {
+        margin-bottom: 40px;
+
+        .label {
+          padding: 13px 20px;
+          color: colors.$grey-300;
+
+          @include typography.font(12px, 700, 14px);
+        }
+
+        .select {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 240px;
+          height: 60px;
+          padding: 22px 20px;
+          cursor: pointer;
+          border: 1px solid colors.$grey-100;
+          border-radius: 10px;
+
+          .name {
+            @include typography.font(16px, 700, 19px);
+          }
+        }
+      }
+
+      .adCenter {
+        .label {
+          padding: 13px 20px;
+          color: colors.$grey-300;
+
+          @include typography.font(12px, 700, 14px);
+        }
+
+        .item {
+          display: flex;
+          align-items: center;
+          width: 240px;
+          height: 60px;
+          padding: 22px 20px;
+          cursor: pointer;
+          border-radius: 10px;
+
+          &:hover,
+          &.active {
+            background: colors.$grey-50;
+
+            .icon {
+              fill: colors.$primary;
+            }
+
+            .name {
+              color: colors.$primary;
+            }
+          }
+
+          .name {
+            margin-left: 12px;
+
+            @include typography.font(16px, 700, 19px);
+          }
+        }
+      }
+    }
+
+    .guide {
+      display: flex;
+      align-items: center;
+      width: 240px;
+      height: 100px;
+      padding: 30px 20px;
+      background: colors.$secondary-01;
+      border-radius: 10px;
+
+      .content {
+        margin-left: 8px;
+
+        span {
+          display: flex;
+          align-items: center;
+          margin-bottom: 7px;
+
+          @include typography.font(16px, 700, 19px);
+        }
+
+        small {
+          display: flex;
+          align-items: center;
+          color: colors.$grey-300;
+
+          @include typography.font(12px, 500, 14px);
+        }
+      }
+    }
+
+    .terms {
+      padding: 40px 20px;
+
+      span {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        color: colors.$grey-300;
+
+        @include typography.font(12px, 500, 14px);
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        color: colors.$grey-300;
+        text-decoration: underline;
+
+        @include typography.font(12px, 500, 14px);
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.topBar {
+  width: 100%;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 40px;
+
+    .notice {
+      position: relative;
+      margin-right: 30px;
+      cursor: pointer;
+
+      .circleIcon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+      }
+    }
+
+    .settingsIcon {
+      margin-right: 30px;
+      cursor: pointer;
+    }
+
+    .profileIcon {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+}

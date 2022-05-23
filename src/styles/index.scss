@@ -1,3 +1,10 @@
+@use './constants/colors';
+
 @import './base/reset';
 @import './base/more';
 @import './base/fonts';
+
+// 기본 폰트 색상
+html {
+  color: colors.$grey-800;
+}
