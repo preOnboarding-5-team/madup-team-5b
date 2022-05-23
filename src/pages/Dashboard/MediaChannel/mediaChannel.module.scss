@@ -1,0 +1,76 @@
+@use '/src/styles/constants/colors';
+
+.block {
+  width: 1120px;
+  height: 808px;
+  padding: 30px;
+  background: #f6f7f8;
+
+  .title {
+    padding-bottom: 20px;
+
+    // font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+
+    /* identical to box height */
+    color: colors.$TITLE;
+  }
+
+  .wrap {
+    width: 1040px;
+    height: 718px;
+
+    /* Black&amp;White/White */
+
+    background: #fff;
+    border-radius: 20px;
+
+    /* shadow_banner */
+
+    box-shadow: 0 4px 10px rgb(0 0 0 / 4%);
+  }
+
+  .top {
+    height: 50%;
+    padding-bottom: 5%;
+    border-radius: 20px;
+
+    .dots {
+      display: flex;
+      float: right;
+      margin-right: 80px;
+
+      .dot {
+        margin: 0 10px 0 50px;
+
+        &:nth-child(1) {
+          fill: colors.$graph_01;
+        }
+
+        &:nth-child(3) {
+          fill: colors.$graph_02;
+        }
+
+        &:nth-child(5) {
+          fill: colors.$graph_03;
+        }
+
+        &:nth-child(7) {
+          fill: colors.$graph_04;
+        }
+      }
+
+      span {
+        color: colors.$grey_300;
+      }
+    }
+  }
+
+  .bottom {
+    height: 50%;
+    border-radius: 20px;
+  }
+}
