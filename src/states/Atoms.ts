@@ -1,8 +1,8 @@
 import { atom } from 'recoil';
 
-const exampleState = atom<any>({
-  key: 'exampleState',
-  default: undefined,
+const adStatusSelectState = atom<string>({
+  key: 'adSelectStatusState',
+  default: '전체 광고',
 });
 
-export { exampleState };
+export { adStatusSelectState };

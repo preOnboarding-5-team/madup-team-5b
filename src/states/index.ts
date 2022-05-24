@@ -1,3 +1,3 @@
-import { exampleState } from './Atoms';
+import { adStatusSelectState } from './Atoms';
 
-export { exampleState };
+export { adStatusSelectState };

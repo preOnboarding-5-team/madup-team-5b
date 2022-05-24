@@ -10,6 +10,18 @@
       ["background-color", "color"],
       { "ignoreValues": ["transparent", "inherit", "initial"] }
     ],
-    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "no-descending-specificity": null,
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "scss/at-function-pattern": "^[a-z_](|[a-zA-Z0-9-]+)$",
+    "scss/at-mixin-pattern": "^[a-z_](|[a-zA-Z0-9]+)$",
+    "scss/dollar-variable-empty-line-before": null,
+    "scss/dollar-variable-pattern": [
+      "^[A-Z0-9_]+$",
+      {
+        "ignore": "local"
+      }
+    ]
   }
 }
