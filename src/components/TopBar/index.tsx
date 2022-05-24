@@ -11,11 +11,27 @@ function TopBar() {
     <header className={styles.topBar}>
       <div className={styles.container}>
         <div className={styles.notice}>
-          <NoticeIcon className={styles.noticeIcon} />
-          <CircleIcon className={styles.circleIcon} />
+          <NoticeIcon
+            width="1.5rem"
+            height="1.5rem"
+            className={styles.noticeIcon}
+          />
+          <CircleIcon
+            width="0.3125rem"
+            height="0.3125rem"
+            className={styles.circleIcon}
+          />
         </div>
-        <SettingsIcon className={styles.settingsIcon} />
-        <DefaultProfileIcon className={styles.profileIcon} />
+        <SettingsIcon
+          width="1.5rem"
+          height="1.5rem"
+          className={styles.settingsIcon}
+        />
+        <DefaultProfileIcon
+          width="2.5rem"
+          height="2.5rem"
+          className={styles.profileIcon}
+        />
         <span className={styles.userName}>Team 5B</span>
       </div>
     </header>

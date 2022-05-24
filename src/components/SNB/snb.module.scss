@@ -1,73 +1,61 @@
 @use 'src/styles/constants/colors';
 @use 'src/styles/mixins/typography';
+@use 'src/styles/mixins/responsive';
 
 .snb {
-  width: 320px;
-  height: 100%;
+  display: flex;
+  width: 100%;
+  max-width: 20rem;
   background: colors.$white;
-  box-shadow: 4px 0 10px rgb(0 0 0 / 4%);
+  box-shadow: 0.25rem 0 0.625rem rgb(0 0 0 / 4%);
 
   .container {
-    height: 984px;
-    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    height: 61.5rem;
+    padding: 0 2.5rem;
 
     .logo {
-      height: 150px;
-      padding: 60px 0;
+      height: 9.375rem;
+      padding: 3.75rem 0;
     }
 
     .line {
-      width: 240px;
+      width: 15rem;
       height: 0;
-      border: 1px solid colors.$grey-50;
+      border: 0.0625rem solid colors.$grey-50;
     }
 
     .menu {
-      padding: 40px 0;
+      padding: 2.5rem 0;
 
       .service {
-        margin-bottom: 40px;
+        margin-bottom: 2.5rem;
 
         .label {
-          padding: 13px 20px;
+          padding: 0.8125rem 1.25rem;
           color: colors.$grey-300;
 
-          @include typography.font(12px, 700, 14px);
-        }
-
-        .select {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 240px;
-          height: 60px;
-          padding: 22px 20px;
-          cursor: pointer;
-          border: 1px solid colors.$grey-100;
-          border-radius: 10px;
-
-          .name {
-            @include typography.font(16px, 700, 19px);
-          }
+          @include typography.font(0.75rem, 700, 0.875rem);
         }
       }
 
       .adCenter {
         .label {
-          padding: 13px 20px;
+          padding: 0.8125rem 1.25rem;
           color: colors.$grey-300;
 
-          @include typography.font(12px, 700, 14px);
+          @include typography.font(0.75rem, 700, 0.875rem);
         }
 
         .item {
           display: flex;
           align-items: center;
-          width: 240px;
-          height: 60px;
-          padding: 22px 20px;
+          width: 15rem;
+          height: 3.75rem;
+          padding: 1.375rem 1.25rem;
           cursor: pointer;
-          border-radius: 10px;
+          border-radius: 0.625rem;
 
           &:hover,
           &.active {
@@ -83,9 +71,9 @@
           }
 
           .name {
-            margin-left: 12px;
+            margin-left: 0.75rem;
 
-            @include typography.font(16px, 700, 19px);
+            @include typography.font(1rem, 700, 1.1875rem);
           }
         }
       }
@@ -94,21 +82,21 @@
     .guide {
       display: flex;
       align-items: center;
-      width: 240px;
-      height: 100px;
-      padding: 30px 20px;
+      width: 15rem;
+      height: 6.25rem;
+      padding: 1.875rem 1.25rem;
       background: colors.$secondary-01;
-      border-radius: 10px;
+      border-radius: 0.625rem;
 
       .content {
-        margin-left: 8px;
+        margin-left: 0.5rem;
 
         span {
           display: flex;
           align-items: center;
-          margin-bottom: 7px;
+          margin-bottom: 0.4375rem;
 
-          @include typography.font(16px, 700, 19px);
+          @include typography.font(1rem, 700, 1.1875rem);
         }
 
         small {
@@ -116,21 +104,21 @@
           align-items: center;
           color: colors.$grey-300;
 
-          @include typography.font(12px, 500, 14px);
+          @include typography.font(0.75rem, 500, 0.875rem);
         }
       }
     }
 
     .terms {
-      padding: 40px 20px;
+      padding: 2.5rem 1.25rem;
 
       span {
         display: flex;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
         color: colors.$grey-300;
 
-        @include typography.font(12px, 500, 14px);
+        @include typography.font(0.75rem, 500, 0.875rem);
       }
 
       a {
@@ -139,7 +127,7 @@
         color: colors.$grey-300;
         text-decoration: underline;
 
-        @include typography.font(12px, 500, 14px);
+        @include typography.font(0.75rem, 500, 0.875rem);
       }
     }
   }

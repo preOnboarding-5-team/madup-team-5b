@@ -5,11 +5,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 20px 40px;
+    padding: 1.25rem 2.5rem;
 
     .notice {
       position: relative;
-      margin-right: 30px;
+      margin-right: 1.875rem;
       cursor: pointer;
 
       .circleIcon {
@@ -21,12 +21,12 @@
     }
 
     .settingsIcon {
-      margin-right: 30px;
+      margin-right: 1.875rem;
       cursor: pointer;
     }
 
     .profileIcon {
-      margin-right: 10px;
+      margin-right: 0.625rem;
       cursor: pointer;
     }
   }

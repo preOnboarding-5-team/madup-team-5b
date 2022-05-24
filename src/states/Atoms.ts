@@ -9,4 +9,42 @@ const dateRangeState = atom<TDataRangeState>({
   default: { start: new Date(), end: new Date() },
 });
 
-export { dateRangeState };
+const selectedServiceState = atom({
+  key: 'selectedServiceState',
+  default: '매드업',
+});
+
+const serviceListState = atom({
+  key: 'serviceListState',
+  default: ['매드업'],
+});
+
+const trendFirstState = atom({
+  key: 'TrendFirstState',
+  default: 'ROAS',
+});
+
+const trendSecondState = atom({
+  key: 'TrendSecondState',
+  default: '클릭수',
+});
+
+const trendTermState = atom({
+  key: 'trendTermState',
+  default: '주간',
+});
+
+const adListState = atom({
+  key: 'adListState',
+  default: '전체',
+});
+
+export {
+  dateRangeState,
+  selectedServiceState,
+  serviceListState,
+  trendFirstState,
+  trendSecondState,
+  trendTermState,
+  adListState,
+};

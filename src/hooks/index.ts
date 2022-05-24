@@ -1,3 +1,3 @@
-import useRecoil from './useRecoil';
+import { useRecoil } from './useRecoil';
 
-export default useRecoil;
+export { useRecoil };

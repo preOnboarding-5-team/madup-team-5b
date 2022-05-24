@@ -1,6 +1,7 @@
 import DatePicker from 'components/common/DatePicker';
 import { useRecoilValue } from 'recoil';
 import { refinedDateRangeState } from 'states';
+
 import styles from './dashboard.module.scss';
 
 function Dashboard() {

@@ -2,11 +2,10 @@ import ReactDatePicker from 'react-datepicker';
 import { ko } from 'date-fns/locale';
 
 import { ArrowDownIcon } from 'assets';
-import useRecoil from 'hooks';
+import { useRecoil } from 'hooks';
 import { dateRangeState } from 'states';
 
 import './react-datepicker.scss';
-import { useState } from 'react';
 import styles from './datePicker.module.scss';
 
 function DatePicker() {
@@ -40,7 +39,7 @@ function DatePicker() {
         />
       </div>
       <div className={styles.arrow}>
-        <ArrowDownIcon className={styles.arrow} />
+        <ArrowDownIcon width=".75rem" height=".5rem" className={styles.arrow} />
       </div>
     </div>
   );

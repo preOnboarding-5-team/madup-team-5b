@@ -2,7 +2,7 @@
 
 .datePicker {
   display: flex;
-  width: 262px;
+  width: 16.375rem;
 
   .pickers {
     display: flex;
@@ -14,11 +14,11 @@
 
       input {
         display: inline;
-        width: 217px;
+        width: 13.5625rem;
         cursor: pointer;
         caret-color: transparent;
 
-        @include typography.font(14px, 500, 16px);
+        @include typography.font(0.875rem, 500, 1rem);
       }
     }
   }
@@ -27,13 +27,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    margin-left: 10px;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.625rem;
 
     svg {
-      width: 12px;
-      height: 8px;
+      width: 0.75rem;
+      height: 0.5rem;
       margin-left: 0;
     }
   }
