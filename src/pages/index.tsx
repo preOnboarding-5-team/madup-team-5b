@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import * as V from 'victory';
 
 import Dashboard from './Dashboard';
 import AdManagement from './AdManagement';
