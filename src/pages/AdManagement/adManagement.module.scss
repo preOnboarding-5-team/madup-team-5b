@@ -19,7 +19,8 @@
     justify-content: space-between;
     width: 100%;
     padding-bottom: 20px;
-    font-family: Roboto;
+
+    // font-family: Roboto;
     font-style: normal;
     line-height: 16px;
 
@@ -124,7 +125,8 @@
       p {
         height: 19px;
         margin: 20px 0 40px;
-        font-family: Roboto;
+
+        // font-family: Roboto;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
@@ -136,28 +138,31 @@
         border-top: 1px solid colors.$GREY50;
 
         li {
-          display: flex;
-          justify-content: space-between;
-          padding: 13px 0;
-          font-family: Roboto;
-          font-size: 12px;
-          font-style: normal;
-          line-height: 14px;
-          border-bottom: 1px solid colors.$GREY50;
+          dl {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
 
-          .title {
-            width: 40%;
-            height: 13px;
-            font-weight: 500;
-            line-height: 13px;
-            color: colors.$GREY300;
-          }
+            // font-family: Roboto;
+            font-size: 12px;
+            font-style: normal;
+            line-height: 14px;
+            border-bottom: 1px solid colors.$GREY50;
 
-          .content {
-            width: 60%;
-            height: 13px;
-            font-weight: 700;
-            color: colors.$GREY800;
+            .title {
+              width: 40%;
+              height: 13px;
+              font-weight: 500;
+              line-height: 13px;
+              color: colors.$GREY300;
+            }
+
+            .content {
+              width: 60%;
+              height: 13px;
+              font-weight: 700;
+              color: colors.$GREY800;
+            }
           }
         }
       }
