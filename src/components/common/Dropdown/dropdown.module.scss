@@ -9,53 +9,63 @@
     align-items: center;
     justify-content: space-between;
 
+    :root[color-theme='dark'] & {
+      color: colors.$grey-100;
+
+      .icon {
+        fill: colors.$grey-300;
+      }
+    }
+
     .name {
       @include typography.font(1rem, 700, 1.1875rem);
     }
   }
-:root[color-theme='dark'] & {
-    color: colors.$grey-100;
+}
 
-    .icon {
-      fill: colors.$grey-300;
+.listContainer {
+  position: absolute;
+  background: colors.$white;
+
+  :root[color-theme='dark'] & {
+    background: colors.$dark-snb-bg;
+
+    .name {
+      color: colors.$grey-50;
     }
   }
 }
 
-  .listContainer {
-    position: absolute;
-    background: colors.$white;
-  }
+.large,
+.medium,
+.small {
+  display: flex;
+  align-items: center;
 
-  .large,
-  .medium,
-  .small {
-    display: flex;
-    align-items: center;
-
-
-    &.inputContainer {
-      background-color: colors.$grey-50;
-    }
-    
-    :root[color-theme='dark'] & {
-    &:hover {
-      background: colors.$grey-300;
-
-      .name {
-        color: colors.$dark-primary;
-      }
-    }
+  &.inputContainer {
+    background-color: colors.$grey-50;
   }
 
   &:hover {
     background: colors.$grey-50;
 
+    :root[color-theme='dark'] & {
+      background: colors.$grey-300;
+    }
+
     &:hover {
       background: colors.$grey-50;
 
+      :root[color-theme='dark'] & {
+        background: colors.$grey-300;
+      }
+
       .name {
         color: colors.$primary;
+
+        :root[color-theme='dark'] & {
+          color: colors.$dark-primary;
+        }
       }
     }
 

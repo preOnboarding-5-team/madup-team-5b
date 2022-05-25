@@ -11,6 +11,10 @@
     padding: 2.3125rem 0;
 
     .title {
+      :root[color-theme='dark'] & {
+        color: colors.$grey-300;
+      }
+
       @include typography.font(1.625rem, 900, 1.875rem);
     }
   }
@@ -21,6 +25,10 @@
     background: colors.$white;
     border-radius: 1.25rem;
     box-shadow: 0 0.25rem 0.625rem rgb(0 0 0 / 4%);
+
+    :root[color-theme='dark'] & {
+      background-color: colors.$dark-snb-bg;
+    }
 
     @include responsive.breakpoint('md') {
       padding: 1.25rem;
@@ -66,6 +74,10 @@
         border: 0.0625rem solid colors.$grey-100;
         border-radius: 0.625rem;
 
+        :root[color-theme='dark'] & {
+          background: colors.$grey-300;
+        }
+
         p {
           margin: 1.25rem 0 2.5rem;
           color: colors.$grey-800;
@@ -85,6 +97,9 @@
               width: 40%;
               color: colors.$grey-300;
 
+              :root[color-theme='dark'] & {
+                color: colors.$grey-50;
+              }
               @include typography.font(0.75rem, 500, 0.875rem);
             }
 
@@ -104,6 +119,10 @@
           background: colors.$white;
           border: 0.0625rem solid colors.$grey-100;
           border-radius: 0.625rem;
+
+          :root[color-theme='dark'] & {
+            background: colors.$grey-50;
+          }
 
           @include typography.font(0.875rem, 700, 1rem);
         }
