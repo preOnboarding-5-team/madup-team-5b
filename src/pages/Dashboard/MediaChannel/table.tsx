@@ -1,5 +1,4 @@
 import { DataItem } from 'types/global.d';
-import { MediaChannelData } from 'utils';
 import styles from './table.module.scss';
 
 const columns = [
@@ -14,67 +13,63 @@ const columns = [
   'cpa',
   'ROAS',
 ];
-const data: Record<string, DataItem> = {
-  google: {
-    channel: 'google',
-    date: '',
-    imp: 0,
-    click: 0,
-    cost: 0,
-    convValue: 0,
-    ctr: 0,
-    cvr: 0,
-    cpc: 0,
-    cpa: 0,
-    roas: 0,
-  },
-  facebook: {
-    channel: 'facebook',
-    date: '',
-    imp: 0,
-    click: 0,
-    cost: 0,
-    convValue: 0,
-    ctr: 0,
-    cvr: 0,
-    cpc: 0,
-    cpa: 0,
-    roas: 0,
-  },
-  naver: {
-    channel: 'naver',
-    date: '',
-    imp: 0,
-    click: 0,
-    cost: 0,
-    convValue: 0,
-    ctr: 0,
-    cvr: 0,
-    cpc: 0,
-    cpa: 0,
-    roas: 0,
-  },
-  kakao: {
-    channel: 'kakao',
-    date: '',
-    imp: 0,
-    click: 0,
-    cost: 0,
-    convValue: 0,
-    ctr: 0,
-    cvr: 0,
-    cpc: 0,
-    cpa: 0,
-    roas: 0,
-  },
-};
 
-const totalData = MediaChannelData.map((d: DataItem) => {
-  d.date = d.date.replaceAll('-', '');
-  return d;
-});
+function cal(totalData: DataItem[]) {
+  const data: Record<string, DataItem> = {
+    facebook: {
+      channel: 'facebook',
+      date: '',
+      imp: 0,
+      click: 0,
+      cost: 0,
+      convValue: 0,
+      ctr: 0,
+      cvr: 0,
+      cpc: 0,
+      cpa: 0,
+      roas: 0,
+    },
+    naver: {
+      channel: 'naver',
+      date: '',
+      imp: 0,
+      click: 0,
+      cost: 0,
+      convValue: 0,
+      ctr: 0,
+      cvr: 0,
+      cpc: 0,
+      cpa: 0,
+      roas: 0,
+    },
+    google: {
+      channel: 'google',
+      date: '',
+      imp: 0,
+      click: 0,
+      cost: 0,
+      convValue: 0,
+      ctr: 0,
+      cvr: 0,
+      cpc: 0,
+      cpa: 0,
+      roas: 0,
+    },
+    kakao: {
+      channel: 'kakao',
+      date: '',
+      imp: 0,
+      click: 0,
+      cost: 0,
+      convValue: 0,
+      ctr: 0,
+      cvr: 0,
+      cpc: 0,
+      cpa: 0,
+      roas: 0,
+    },
+  };
 
-function cal() {
   totalData.forEach((d) => {
     data[d.channel].imp += d.imp;
     data[d.channel].click += d.click;
@@ -90,9 +85,12 @@ function cal() {
   return data;
 }
 
-const { google, facebook, naver, kakao } = cal();
+interface Props {
+  totalData: DataItem[];
+}
 
-function Table() {
+function Table({ totalData }: Props) {
+  const { facebook, naver, google, kakao } = cal(totalData);
   return (
     <div className={styles.tableWrap}>
       <table className={styles.table}>
@@ -108,51 +106,43 @@ function Table() {
         <tbody>
           <tr className={styles.tr}>
             <td className={styles.rowHead}>페이스북</td>
-            {Object.values(facebook)
+            {Object.entries(facebook)
               .slice(2)
-              .map((d) => {
-                return (
-                  <td className={styles.td} key={d}>
-                    {Math.round(d).toLocaleString()}
-                  </td>
-                );
-              })}
+              .map((entry) => (
+                <td className={styles.td} key={`facebook+${entry[0]}`}>
+                  {Math.round(entry[1]).toLocaleString()}
+                </td>
+              ))}
           </tr>
           <tr className={styles.tr}>
             <td className={styles.rowHead}>네이버</td>
-            {Object.values(naver)
+            {Object.entries(naver)
               .slice(2)
-              .map((d) => {
-                return (
-                  <td className={styles.td} key={d}>
-                    {Math.round(d).toLocaleString()}
-                  </td>
-                );
-              })}
+              .map((entry) => (
+                <td className={styles.td} key={`naver+${entry[0]}`}>
+                  {Math.round(entry[1]).toLocaleString()}
+                </td>
+              ))}
           </tr>
           <tr className={styles.tr}>
             <td className={styles.rowHead}>구글</td>
-            {Object.values(google)
+            {Object.entries(google)
               .slice(2)
-              .map((d) => {
-                return (
-                  <td className={styles.td} key={d}>
-                    {Math.round(d).toLocaleString()}
-                  </td>
-                );
-              })}
+              .map((entry) => (
+                <td className={styles.td} key={`google+${entry[0]}`}>
+                  {Math.round(entry[1]).toLocaleString()}
+                </td>
+              ))}
           </tr>
           <tr className={styles.tr}>
             <td className={styles.rowHead}>카카오</td>
-            {Object.values(kakao)
+            {Object.entries(kakao)
               .slice(2)
-              .map((d) => {
-                return (
-                  <td className={styles.td} key={d}>
-                    {Math.round(d).toLocaleString()}
-                  </td>
-                );
-              })}
+              .map((entry) => (
+                <td className={styles.td} key={`kakao+${entry[0]}`}>
+                  {Math.round(entry[1]).toLocaleString()}
+                </td>
+              ))}
           </tr>
         </tbody>
       </table>
