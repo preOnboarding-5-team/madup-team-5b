@@ -5,10 +5,12 @@ import {
   trendFirstState,
   trendSecondState,
   trendTermState,
+  themeState,
   adListStatusState,
+
 } from './Atoms';
 
-import { refinedDateRangeState } from './Selectors';
+import { refinedDateRangeState, getTheme, toggleTheme } from './Selectors';
 
 export {
   dateRangeState,
@@ -17,7 +19,9 @@ export {
   trendFirstState,
   trendSecondState,
   trendTermState,
+  themeState,
   adListStatusState,
+
 };
 
-export { refinedDateRangeState };
+export { refinedDateRangeState, getTheme, toggleTheme };
