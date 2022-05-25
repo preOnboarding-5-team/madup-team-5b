@@ -4,6 +4,7 @@ import {
   VictoryAxis,
   VictoryBar,
   VictoryChart,
+  VictoryLabel,
   VictoryLegend,
   VictoryStack,
   VictoryTooltip,
@@ -25,9 +26,9 @@ const tickFormat = ['광고비', '매출', '노출 수', '클릭 수', '전환 �
 function cal(totalData: DataItem[]) {
   const dataSum = {
     cost: 0,
-    roas: 0,
+    convValue: 0,
     imp: 0,
-    ctr: 0,
+    click: 0,
     cvr: 0,
   };
 
@@ -72,14 +73,23 @@ interface Props {
 function Chart({ totalData }: Props) {
   const { facebook, naver, google, kakao } = cal(totalData);
   return (
-    <VictoryChart height={300} width={960} domainPadding={{ x: 50 }}>
+    <VictoryChart
+      style={{ parent: { height: '335px' } }}
+      width={960}
+      domainPadding={{ x: 100 }}
+    >
       <VictoryAxis
         tickValues={tickFormat}
         tickFormat={tickFormat}
         style={{
           axis: { stroke: '#EDEFF1' },
           grid: { stroke: 'transparent' },
-          tickLabels: { fill: '#94A2AD' },
+          tickLabels: {
+            fill: '#94A2AD',
+            fontSize: '12px',
+            fontWeight: '500',
+            lineHeight: '14px',
+          },
         }}
         width={960}
       />
@@ -88,9 +98,22 @@ function Chart({ totalData }: Props) {
         style={{
           axis: { stroke: 'transparent' },
           grid: { stroke: '#EDEFF1' },
-          tickLabels: { fill: '#94A2AD' },
+          tickLabels: {
+            fill: '#94A2AD',
+            fontSize: '12px',
+            fontWeight: '500',
+            lineHeight: '14px',
+          },
         }}
         tickFormat={(x) => `${x}%`}
+        tickLabelComponent={
+          <VictoryLabel
+            verticalAnchor="start"
+            textAnchor="start"
+            dy={5}
+            dx={8}
+          />
+        }
       />
       <VictoryStack colorScale={['#4fadf7', '#85DA47', '#ac8af8', '#FFEB00']}>
         <VictoryBar
@@ -125,7 +148,12 @@ function Chart({ totalData }: Props) {
         orientation="horizontal"
         gutter={60}
         style={{
-          labels: { fill: '#94a2ad' },
+          labels: {
+            fill: '#94a2ad',
+            fontSize: 12,
+            fontWeight: 500,
+            lineHeight: 14,
+          },
         }}
         data={[
           { name: '페이스북', symbol: { fill: '#4fadf7' } },

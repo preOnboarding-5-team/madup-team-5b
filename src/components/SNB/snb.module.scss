@@ -1,0 +1,134 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/typography';
+@use 'src/styles/mixins/responsive';
+
+.snb {
+  display: flex;
+  width: 100%;
+  max-width: 20rem;
+  background: colors.$white;
+  box-shadow: 0.25rem 0 0.625rem rgb(0 0 0 / 4%);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 61.5rem;
+    padding: 0 2.5rem;
+
+    .logo {
+      height: 9.375rem;
+      padding: 3.75rem 0;
+    }
+
+    .line {
+      width: 15rem;
+      height: 0;
+      border: 0.0625rem solid colors.$grey-50;
+    }
+
+    .menu {
+      padding: 2.5rem 0;
+
+      .service {
+        margin-bottom: 2.5rem;
+
+        .label {
+          padding: 0.8125rem 1.25rem;
+          color: colors.$grey-300;
+
+          @include typography.font(0.75rem, 700, 0.875rem);
+        }
+      }
+
+      .adCenter {
+        .label {
+          padding: 0.8125rem 1.25rem;
+          color: colors.$grey-300;
+
+          @include typography.font(0.75rem, 700, 0.875rem);
+        }
+
+        .item {
+          display: flex;
+          align-items: center;
+          width: 15rem;
+          height: 3.75rem;
+          padding: 1.375rem 1.25rem;
+          cursor: pointer;
+          border-radius: 0.625rem;
+
+          &:hover,
+          &.active {
+            background: colors.$grey-50;
+
+            .icon {
+              fill: colors.$primary;
+            }
+
+            .name {
+              color: colors.$primary;
+            }
+          }
+
+          .name {
+            margin-left: 0.75rem;
+
+            @include typography.font(1rem, 700, 1.1875rem);
+          }
+        }
+      }
+    }
+
+    .guide {
+      display: flex;
+      align-items: center;
+      width: 15rem;
+      height: 6.25rem;
+      padding: 1.875rem 1.25rem;
+      background: colors.$secondary-01;
+      border-radius: 0.625rem;
+
+      .content {
+        margin-left: 0.5rem;
+
+        span {
+          display: flex;
+          align-items: center;
+          margin-bottom: 0.4375rem;
+
+          @include typography.font(1rem, 700, 1.1875rem);
+        }
+
+        small {
+          display: flex;
+          align-items: center;
+          color: colors.$grey-300;
+
+          @include typography.font(0.75rem, 500, 0.875rem);
+        }
+      }
+    }
+
+    .terms {
+      padding: 2.5rem 1.25rem;
+
+      span {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.625rem;
+        color: colors.$grey-300;
+
+        @include typography.font(0.75rem, 500, 0.875rem);
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        color: colors.$grey-300;
+        text-decoration: underline;
+
+        @include typography.font(0.75rem, 500, 0.875rem);
+      }
+    }
+  }
+}

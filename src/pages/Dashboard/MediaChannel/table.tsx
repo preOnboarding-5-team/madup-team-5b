@@ -3,15 +3,13 @@ import styles from './table.module.scss';
 
 const columns = [
   '',
-  '노출(imp)',
-  '클릭 수',
-  '비용',
-  'convValue',
-  '클릭율(ctr)',
-  '전환율(cvr)',
-  '클릭당비용(cpc)',
-  'cpa',
+  '광고비',
+  '매출',
   'ROAS',
+  '노출수',
+  '클릭 수',
+  '클릭률(CTR)',
+  '클릭당비용(CPC)',
 ];
 
 function cal(totalData: DataItem[]) {
@@ -76,9 +74,7 @@ function cal(totalData: DataItem[]) {
     data[d.channel].cost += d.cost;
     data[d.channel].convValue += d.convValue;
     data[d.channel].ctr += d.ctr;
-    data[d.channel].cvr += d.cvr;
     data[d.channel].cpc += d.cpc;
-    data[d.channel].cpa += d.cpa;
     data[d.channel].roas += d.roas;
   });
 
@@ -93,7 +89,7 @@ function Table({ totalData }: Props) {
   const { facebook, naver, google, kakao } = cal(totalData);
   return (
     <div className={styles.tableWrap}>
-      <table className={styles.table}>
+      <table className={styles.table} cellSpacing={0} cellPadding={0}>
         <thead>
           <tr className={styles.tr}>
             {columns.map((column) => (

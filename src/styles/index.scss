@@ -1,3 +1,22 @@
+@use './constants/colors';
+@use './mixins/responsive';
+
 @import './base/reset';
 @import './base/more';
 @import './base/fonts';
+
+html {
+  // 기본 폰트 색상
+  color: colors.$grey-800;
+
+  // 반응형
+  @include responsive.breakpoint('lg') {
+    font-size: 14px;
+  }
+  @include responsive.breakpoint('md') {
+    font-size: 12px;
+  }
+  @include responsive.breakpoint('sm') {
+    font-size: 10px;
+  }
+}

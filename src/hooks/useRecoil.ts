@@ -6,7 +6,7 @@ import {
   useResetRecoilState,
 } from 'recoil';
 
-export default function useRecoil<T>(
+export function useRecoil<T>(
   recoilState: RecoilState<T>
 ): [T, SetterOrUpdater<T>, Resetter] {
   const [value, setter] = useRecoilState(recoilState);
