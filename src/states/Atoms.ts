@@ -1,5 +1,4 @@
 import { atom } from 'recoil';
-import store from 'store';
 
 type TDataRangeState = {
   start: Date | null;

@@ -32,7 +32,6 @@ const toggleTheme = selector({
   key: 'toggleTheme',
   get: ({ get }) => {
     const theme = get(themeState) === 'light' ? 'dark' : 'light';
-    store.set('foundation.theme', theme);
     document.documentElement.setAttribute('color-theme', theme);
   },
 });
