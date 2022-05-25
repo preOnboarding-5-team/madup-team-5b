@@ -36,6 +36,7 @@ function TopBar() {
           <CircleIcon
             width="0.3125rem"
             height="0.3125rem"
+            fill="#ea3a4b"
             className={styles.circleIcon}
           />
         </div>

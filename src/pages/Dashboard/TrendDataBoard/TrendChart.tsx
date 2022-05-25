@@ -1,3 +1,6 @@
+import { useRecoil } from 'hooks';
+import { useEffect, useState } from 'react';
+import { firstTrendState, secondTrendState } from 'states';
 import {
   VictoryAxis,
   VictoryChart,
@@ -12,69 +15,85 @@ export interface FilteredData {
   imp: number;
   click: number;
   cost: number;
-  conv: number;
   convValue: number;
-  ctr: number;
-  cvr: number;
-  cpc: number;
-  cpa: number;
   roas: number;
   date: string;
+  cvr: number;
 }
 
 interface IProps {
   filteredData: FilteredData[];
 }
 
-const checkItem = ['roas', 'click'];
+function TrendChart({ filteredData }: IProps) {
+  const [firstTrend] = useRecoil(firstTrendState);
+  const [secondTrend] = useRecoil(secondTrendState);
 
-const makeTrendArray = (item: FilteredData[]) => {
-  const data: Record<string, { value: number; date: string }[]> = {
-    imp: [],
-    click: [],
-    cost: [],
-    conv: [],
-    convValue: [],
-    ctr: [],
-    cvr: [],
-    cpc: [],
-    cpa: [],
-    roas: [],
+  const [firstChosenData, setFirstChosenData] = useState<string>('roas');
+  const [secondChosenData, setSecondChosenData] = useState<string>('click');
+
+  useEffect(() => {
+    const first = {
+      ROAS: 'roas',
+      광고비: 'cost',
+      노출수: 'imp',
+      클릭수: 'click',
+      전환수: 'convValue',
+      매출: 'total',
+    }[firstTrend.name];
+    const second = {
+      ROAS: 'roas',
+      광고비: 'cost',
+      노출수: 'imp',
+      클릭수: 'click',
+      전환수: 'convValue',
+      매출: 'total',
+    }[secondTrend.name];
+
+    setFirstChosenData(first as string);
+    setSecondChosenData(second as string);
+  }, [firstTrend.name, secondTrend.name]);
+
+  const checkItem = ['roas', 'click'];
+
+  const makeTrendArray = (item: FilteredData[]) => {
+    const data: Record<string, { value: number; date: string }[]> = {
+      imp: [],
+      click: [],
+      cost: [],
+      convValue: [],
+      roas: [],
+      total: [],
+    };
+
+    item.forEach((d) => {
+      data.imp.push({ date: d.date, value: d.imp });
+      data.click.push({ date: d.date, value: d.click });
+      data.cost.push({ date: d.date, value: d.cost });
+      data.convValue.push({ date: d.date, value: d.convValue });
+      data.roas.push({ date: d.date, value: d.roas });
+      data.total.push({ date: d.date, value: (d.roas / 100) * d.cost });
+    });
+    return data;
   };
 
-  item.forEach((d) => {
-    data.imp.push({ date: d.date, value: d.imp });
-    data.click.push({ date: d.date, value: d.click });
-    data.cost.push({ date: d.date, value: d.cost });
-    data.conv.push({ date: d.date, value: d.conv });
-    data.convValue.push({ date: d.date, value: d.convValue });
-    data.ctr.push({ date: d.date, value: d.ctr });
-    data.cvr.push({ date: d.date, value: d.cvr });
-    data.cpc.push({ date: d.date, value: d.cpc });
-    data.cpa.push({ date: d.date, value: d.cpa });
-    data.roas.push({ date: d.date, value: d.roas });
-  });
-  return data;
-};
+  const unit = (item: string) => {
+    if (item === 'roas') return '%';
+    if (item === 'click') return '번';
+    return '';
+  };
 
-const unit = (item: string) => {
-  if (item === 'roas') return '%';
-  if (item === 'click') return '번';
-  return '';
-};
-
-function TrendChart({ filteredData }: IProps) {
   const kk = makeTrendArray(filteredData);
 
   const xOffsets = [100, 900];
   const tickPadding = [0, -20];
   const anchors = ['end', 'start'];
-  const colors = ['green', 'blue'];
+  const colors = [firstTrend.color, secondTrend.color];
 
   // 수정해야 함
-  const test = 'click';
-  const chosenDatas = [kk.roas];
-  if (test === 'click') chosenDatas.push(kk[test]);
+  // const test = 'click';
+  const chosenDatas = [kk[firstChosenData], kk[secondChosenData]];
+  // if (test === 'click') chosenDatas.push(kk[test]);
 
   const maxima = chosenDatas.map((dataset) =>
     Math.max(...dataset.map((d) => d.value))

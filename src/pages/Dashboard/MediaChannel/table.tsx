@@ -1,4 +1,4 @@
-import { DataItem, ITotalData } from 'types/global.d';
+import { ITotalData } from 'types/global.d';
 import styles from './table.module.scss';
 
 const columns = [

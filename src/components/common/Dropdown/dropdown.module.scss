@@ -25,6 +25,7 @@
 
 .listContainer {
   position: absolute;
+  z-index: 2;
   background: colors.$white;
 
   :root[color-theme='dark'] & {
@@ -41,6 +42,7 @@
 .small {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   &.inputContainer {
     background-color: colors.$grey-50;
