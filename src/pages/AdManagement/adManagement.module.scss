@@ -1,20 +1,113 @@
-@use 'src/styles/constants/colors';
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 @use 'src/styles/mixins/typography';
 
 .adManagement {
   width: 100%;
-  height: 75.5rem;
 
   .titleContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
     height: 5rem;
-    padding: 1.5625rem 2.5rem;
+    padding: 2.3125rem 0;
 
     .title {
       @include typography.font(1.625rem, 900, 1.875rem);
+    }
+  }
+
+  .container {
+    padding: 2.5rem;
+    margin: 1.875rem 0;
+    background: colors.$white;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.25rem 0.625rem rgb(0 0 0 / 4%);
+
+    @include responsive.breakpoint('md') {
+      padding: 1.25rem;
+    }
+
+    .topContents {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 2.5rem;
+      font-style: normal;
+      line-height: 1rem;
+
+      .btnMakeAd {
+        padding: 0.75rem 1.25rem;
+        color: colors.$white;
+        background: colors.$primary;
+        border-radius: 0.625rem;
+
+        @include typography.font(0.875rem, 700, 1rem);
+      }
+    }
+
+    .bottomContents {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      width: 100%;
+
+      @include responsive.breakpoint('lg') {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      @include responsive.breakpoint('sm') {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .adCard {
+        box-sizing: border-box;
+        padding: 1.25rem;
+        background: colors.$white;
+        border: 0.0625rem solid colors.$grey-100;
+        border-radius: 0.625rem;
+
+        p {
+          margin: 1.25rem 0 2.5rem;
+          color: colors.$grey-800;
+
+          @include typography.font(1rem, 700, 1.1875rem);
+        }
+
+        dl {
+          border-top: 0.0625rem solid colors.$grey-50;
+
+          div {
+            display: flex;
+            padding: 0.8125rem 0;
+            border-bottom: 0.0625rem solid colors.$grey-50;
+
+            .title {
+              width: 40%;
+              color: colors.$grey-300;
+
+              @include typography.font(0.75rem, 500, 0.875rem);
+            }
+
+            .content {
+              width: 60%;
+              color: colors.$grey-800;
+
+              @include typography.font(0.75rem, 700, 0.875rem);
+            }
+          }
+        }
+
+        .modifyButton {
+          padding: 0.75rem 1.25rem;
+          margin-top: 1.25rem;
+          color: colors.$grey-800;
+          background: colors.$white;
+          border: 0.0625rem solid colors.$grey-100;
+          border-radius: 0.625rem;
+
+          @include typography.font(0.875rem, 700, 1rem);
+        }
+      }
     }
   }
 }

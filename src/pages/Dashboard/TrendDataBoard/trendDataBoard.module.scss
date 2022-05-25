@@ -1,0 +1,80 @@
+@use 'src/styles/mixins/typography';
+@use 'src/styles/mixins/responsive';
+@use '/src/styles/constants/colors';
+
+.trandDataBoardWrapper {
+  width: 100%;
+  height: 46.4375rem;
+
+  h2 {
+    padding-bottom: 1.25rem;
+    color: colors.$grey-800;
+
+    @include typography.font(1rem, 700, 1.1875rem);
+  }
+
+  .trandDataBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 40.875rem;
+    background: colors.$white;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.25rem 0.625rem rgb(0 0 0 / 4%);
+
+    ul {
+      display: grid;
+      flex-wrap: wrap;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.375rem;
+      height: 50%;
+      padding: 2.5rem 2.5rem 0;
+      overflow: auto;
+
+      @include responsive.breakpoint('lg') {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1.25rem 1.25rem 0;
+      }
+
+      @include responsive.breakpoint('sm') {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .dataBox {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 1.125rem 2.5rem;
+        background: colors.$white;
+        border: 0.0313rem solid colors.$grey-50;
+        border-radius: 0.625rem;
+
+        @include responsive.breakpoint('lg') {
+          padding: 1rem 2rem;
+        }
+
+        .dataTitle {
+          color: colors.$grey-300;
+
+          @include typography.font(0.75rem, 500, 0.875rem);
+        }
+
+        .dataValue {
+          margin-top: 0.625rem;
+          color: colors.$grey-800;
+
+          @include typography.font(1rem, 700, 1.1875rem);
+        }
+
+        .transeData {
+          flex: none;
+          color: colors.$grey-300;
+
+          @include typography.font(0.75rem, 500, 0.875rem);
+        }
+      }
+    }
+  }
+}

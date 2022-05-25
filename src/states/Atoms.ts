@@ -35,9 +35,9 @@ const trendTermState = atom({
   default: '주간',
 });
 
-const adListState = atom({
+const adListStatusState = atom({
   key: 'adListState',
-  default: '전체',
+  default: '전체 광고',
 });
 
 const themeState = atom({
@@ -52,6 +52,8 @@ export {
   trendFirstState,
   trendSecondState,
   trendTermState,
-  adListState,
+ adListState,
   themeState,
+  adListStatusState,
+
 };
