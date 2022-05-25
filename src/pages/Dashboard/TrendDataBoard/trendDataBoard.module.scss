@@ -1,0 +1,99 @@
+.trandDataBoardWrapper {
+  top: 90px;
+  left: 320px;
+  box-sizing: border-box;
+  width: 1120px;
+  height: 743px;
+  background: #f6f7f8;
+
+  h2 {
+    position: absolute;
+    top: 21px;
+    left: 40px;
+    width: 97px;
+    height: 19px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    color: #3a474e;
+  }
+
+  .trandDataBoard {
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1039px;
+    height: 654px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 4%);
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .chartBox {
+      width: 960px;
+      height: 300px;
+      margin: 40px 0;
+    }
+  }
+}
+
+.dataBox {
+  position: relative;
+  top: 30px;
+  left: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 304px;
+  height: 79px;
+  padding: 18px 40px;
+  margin: 5px;
+  background: #ffffff;
+  border: 0.5px solid #edeff1;
+  border-radius: 10px;
+
+  .dataTitle {
+    top: 18px;
+    left: 40px;
+    width: 35px;
+    height: 14px;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+    color: #94a2ad;
+  }
+
+  .dataValue {
+    margin-top: 10px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    color: #3a474e;
+  }
+
+  .transeData {
+    flex: none;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+    color: #94a2ad;
+  }
+}

@@ -1,20 +1,216 @@
-@use 'src/styles/constants/colors';
-@use 'src/styles/mixins/typography';
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
 
 .adManagement {
-  width: 100%;
-  height: 75.5rem;
+  width: 95%;
+  max-width: 1039px;
+  height: 100%;
 
-  .titleContainer {
+  // height: 1020px;
+  padding: 40px 20px 40px 40px;
+  margin: 20px;
+  background: white;
+  border: 1px solid rgb(248 244 244);
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 4%);
+
+  .topContents {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 5rem;
-    padding: 1.5625rem 2.5rem;
+    padding-bottom: 20px;
 
-    .title {
-      @include typography.font(1.625rem, 900, 1.875rem);
+    // font-family: Roboto;
+    font-style: normal;
+    line-height: 16px;
+
+    .selectWrapper {
+      position: relative;
+
+      .select {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        width: 123px;
+        height: 40px;
+        padding: 12px 20px;
+        font-size: 14px;
+        font-weight: 14px;
+        line-height: 14px;
+        color: colors.$grey_800;
+        background: colors.$WHITE;
+        border: 1px solid colors.$grey_100;
+        border-radius: 10px;
+
+        .selectIcon {
+          width: 12px;
+          height: 13px;
+        }
+      }
+
+      .selectList {
+        position: absolute;
+        top: 45px;
+        width: 123px;
+        padding: 5px;
+        text-align: center;
+        pointer-events: none;
+        background: colors.$WHITE;
+        border: 1px solid colors.$grey_100;
+        border-radius: 10px;
+        opacity: 0;
+        transition: 0.3s;
+        transform: translateY(-1%);
+
+        .selectContent {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding: 12px 15px;
+          font-size: 14px;
+          color: colors.$grey_800;
+          cursor: pointer;
+          border-radius: 10px;
+
+          .selectContentIcon {
+            height: 14px;
+          }
+
+          &:hover {
+            background: whitesmoke;
+          }
+        }
+      }
+
+      .isOpen {
+        pointer-events: auto;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btnMakeAd {
+      box-sizing: border-box;
+      width: 108px;
+      min-width: 108px;
+      height: 40px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: colors.$WHITE;
+      background: colors.$Primary;
+      border-radius: 10px;
     }
   }
+
+  .bottomContents {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .adCard {
+      box-sizing: border-box;
+
+      // width: 45%;
+      width: 305px;
+      min-width: 245px;
+      max-width: 305px;
+      height: 420px;
+      padding: 20px;
+      margin: 20px 20px 0 0;
+      background: colors.$WHITE;
+      border: 1px solid colors.$grey_100;
+      border-radius: 10px;
+
+      p {
+        height: 19px;
+        margin: 20px 0 40px;
+
+        // font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 19px;
+        color: colors.$grey_800;
+      }
+
+      ul {
+        border-top: 1px solid colors.$grey_50;
+
+        li {
+          dl {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+
+            // font-family: Roboto;
+            font-size: 12px;
+            font-style: normal;
+            line-height: 14px;
+            border-bottom: 1px solid colors.$grey_50;
+
+            .title {
+              width: 40%;
+              height: 13px;
+              font-weight: 500;
+              line-height: 13px;
+              color: colors.$grey_300;
+            }
+
+            .content {
+              width: 60%;
+              height: 13px;
+              font-weight: 700;
+              color: colors.$grey_800;
+            }
+          }
+        }
+      }
+
+      .btnModify {
+        box-sizing: border-box;
+        align-items: flex-start;
+        width: 92px;
+        height: 40px;
+        padding: 12px 20px;
+        margin-top: 20px;
+        font-size: 14px;
+        line-height: 16px;
+        color: colors.$grey_800;
+        background: colors.$WHITE;
+        border: 1px solid colors.$grey_100;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  // @include responsive.after(ML) {
+  //   background-color: turquoise;
+
+  //   .bottomContents {
+  //     .adCard {
+  //       width: 30%;
+  //     }
+  //   }
+  // }
+
+  // // @include responsive.after(SD) {
+  // //   background-color: red;
+
+  // //   .bottomContents {
+  // //     .adCard {
+  // //       width: 30%;
+  // //     }
+  // //   }
+  // // }
+
+  // @include responsive.after(LD) {
+  //   background-color: antiquewhite;
+
+  //   .bottomContents {
+  //     .adCard {
+  //       width: 305px;
+  //     }
+  //   }
+  // }
 }
