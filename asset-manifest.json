@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d98368e7.css",
+    "main.js": "/static/js/main.d7a97632.js",
+    "static/media/lever-logo.svg": "/static/media/lever-logo.974723987504d06b7846681e9737f583.svg",
+    "static/media/settings-icon.svg": "/static/media/settings-icon.a2c82b3161bd684e9c2257fe3f918749.svg",
+    "static/media/dashboard-icon.svg": "/static/media/dashboard-icon.db4d4526e5b3bbb4115dd31ef9b17688.svg",
+    "static/media/notice-icon.svg": "/static/media/notice-icon.174fbe540a25109064060d61b00161b2.svg",
+    "static/media/guide-icon.svg": "/static/media/guide-icon.13b6fb5d116ad052052536fb91b00d83.svg",
+    "static/media/ad-management-icon.svg": "/static/media/ad-management-icon.cefefb3d8a8de5315ab759b25a2f9bca.svg",
+    "static/media/default-profile-icon.svg": "/static/media/default-profile-icon.a1305a7ef175b74326b2fc01edad978c.svg",
+    "index.html": "/index.html",
+    "static/media/check-icon.svg": "/static/media/check-icon.e431423eb44532573c71f1caa5229f05.svg",
+    "static/media/arrow-down-icon.svg": "/static/media/arrow-down-icon.1474bf1ab19c0dc70a741c49b0ee3f10.svg",
+    "static/media/circle-icon.svg": "/static/media/circle-icon.cbc37248381c63a5107d21ca55a142d0.svg",
+    "static/media/lower-value-icon.svg": "/static/media/lower-value-icon.b7233f65ea0e64ce4154c8dfa74d1289.svg",
+    "static/media/higher-value-icon.svg": "/static/media/higher-value-icon.f70a742d6c74bc3ce9052418ecfa1b9d.svg",
+    "main.d98368e7.css.map": "/static/css/main.d98368e7.css.map",
+    "main.d7a97632.js.map": "/static/js/main.d7a97632.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d98368e7.css",
+    "static/js/main.d7a97632.js"
+  ]
+}
