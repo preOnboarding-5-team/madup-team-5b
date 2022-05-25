@@ -5,8 +5,7 @@ import {
   SettingsIcon,
 } from 'assets';
 import { useRecoil } from 'hooks';
-import { useRecoilValue } from 'recoil';
-import { themeState, toggleTheme } from 'states';
+import { themeState } from 'states';
 import styles from './topbar.module.scss';
 
 function TopBar() {

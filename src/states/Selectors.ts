@@ -28,12 +28,4 @@ const getTheme = selector({
   },
 });
 
-const toggleTheme = selector({
-  key: 'toggleTheme',
-  get: ({ get }) => {
-    const theme = get(themeState) === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('color-theme', theme);
-  },
-});
-
-export { refinedDateRangeState, getTheme, toggleTheme };
+export { refinedDateRangeState, getTheme };
