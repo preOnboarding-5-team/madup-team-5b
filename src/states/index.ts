@@ -5,7 +5,6 @@ import {
   trendFirstState,
   trendSecondState,
   trendTermState,
-adListState,
   themeState,
   adListStatusState,
 
@@ -20,7 +19,6 @@ export {
   trendFirstState,
   trendSecondState,
   trendTermState,
-adListState,
   themeState,
   adListStatusState,
 
