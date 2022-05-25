@@ -6,6 +6,7 @@ import {
   trendSecondState,
   trendTermState,
   adListState,
+  adStatusSelectState,
 } from './Atoms';
 
 import { refinedDateRangeState } from './Selectors';
@@ -18,6 +19,7 @@ export {
   trendSecondState,
   trendTermState,
   adListState,
+  adStatusSelectState,
 };
 
 export { refinedDateRangeState };
