@@ -39,8 +39,39 @@ function AdManagement() {
 
   return (
     <div className={styles.adManagement}>
-      <div className={styles.titleContainer}>
-        <div className={styles.title}>광고 관리</div>
+      <div className={styles.topContents}>
+        <div className={styles.selectWrapper}>
+          <button
+            type="button"
+            className={styles.select}
+            onClick={handledropdown}
+          >
+            <span>{selectStatus}</span>
+            <ArrowDownIcon className={styles.selectIcon} />
+          </button>
+          <ul className={cx(styles.selectList, { [styles.isOpen]: isOpen })}>
+            {SHOW_STATUS.map((item: string) => {
+              return (
+                <li key={item}>
+                  <button
+                    type="button"
+                    className={styles.selectContent}
+                    onClick={handleSelectStatus}
+                    data-value={item}
+                  >
+                    <span>{item}</span>
+                    {selectStatus === item && (
+                      <CheckIcon className={styles.selectContentIcon} />
+                    )}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <button type="button" className={styles.btnMakeAd} data-value="create">
+          광고 만들기
+        </button>
       </div>
       <div className={styles.container}>
         <div className={styles.topContents}>
