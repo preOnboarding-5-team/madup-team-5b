@@ -7,4 +7,4 @@ const CHART_STYLE = {
   y: 'value',
 };
 
-export default CHART_STYLE;
+export { CHART_STYLE };

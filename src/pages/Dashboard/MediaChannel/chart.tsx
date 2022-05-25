@@ -11,7 +11,7 @@ import {
 
 import { DataItem } from 'types/global.d';
 import _ from 'lodash';
-import CHART_STYLE from './chartStyle';
+import { CHART_STYLE } from './chartStyle';
 
 const dataStructure = [
   { value: 0, category: '광고비', total: 0 },
@@ -55,8 +55,6 @@ function cal(totalData: DataItem[]) {
   });
 
   Object.entries(data).forEach(([key, values]) => {
-    // eslint-disable-next-line operator-assignment
-
     values[0].value = (values[0].total / dataSum.cost) * 100;
     values[1].value = (values[1].total / dataSum.roas) * 100;
     values[2].value = (values[2].total / dataSum.imp) * 100;
@@ -99,57 +97,25 @@ function Chart({ totalData }: Props) {
           data={facebook}
           {...CHART_STYLE}
           labels={({ datum }) => Math.round(datum.total).toLocaleString()}
-          labelComponent={
-            <VictoryTooltip
-              pointerOrientation="bottom"
-              flyoutWidth={100}
-              flyoutHeight={30}
-              pointerWidth={10}
-              cornerRadius={5}
-            />
-          }
+          labelComponent={<VictoryTooltip />}
         />
         <VictoryBar
           data={naver}
           {...CHART_STYLE}
           labels={({ datum }) => Math.round(datum.total).toLocaleString()}
-          labelComponent={
-            <VictoryTooltip
-              pointerOrientation="bottom"
-              flyoutWidth={100}
-              flyoutHeight={30}
-              pointerWidth={10}
-              cornerRadius={5}
-            />
-          }
+          labelComponent={<VictoryTooltip />}
         />
         <VictoryBar
           data={google}
           {...CHART_STYLE}
           labels={({ datum }) => Math.round(datum.total).toLocaleString()}
-          labelComponent={
-            <VictoryTooltip
-              pointerOrientation="bottom"
-              flyoutWidth={100}
-              flyoutHeight={30}
-              pointerWidth={10}
-              cornerRadius={5}
-            />
-          }
+          labelComponent={<VictoryTooltip />}
         />
         <VictoryBar
           data={kakao}
           {...CHART_STYLE}
           labels={({ datum }) => Math.round(datum.total).toLocaleString()}
-          labelComponent={
-            <VictoryTooltip
-              pointerOrientation="bottom"
-              flyoutWidth={100}
-              flyoutHeight={30}
-              pointerWidth={10}
-              cornerRadius={5}
-            />
-          }
+          labelComponent={<VictoryTooltip />}
           cornerRadius={{ top: 6 }}
         />
       </VictoryStack>
