@@ -11,7 +11,6 @@ import styles from './app.module.scss';
 
 function App() {
   const [theme, settheme] = useRecoil(themeState);
-  console.log(theme);
 
   useEffect(() => {
     document.documentElement.setAttribute('color-theme', theme);
