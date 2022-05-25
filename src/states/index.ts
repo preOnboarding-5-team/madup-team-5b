@@ -9,7 +9,7 @@ import {
   adListStatusState,
 } from './Atoms';
 
-import { refinedDateRangeState, getTheme, toggleTheme } from './Selectors';
+import { refinedDateRangeState, getTheme } from './Selectors';
 
 export {
   dateRangeState,
@@ -22,4 +22,4 @@ export {
   adListStatusState,
 };
 
-export { refinedDateRangeState, getTheme, toggleTheme };
+export { refinedDateRangeState, getTheme };

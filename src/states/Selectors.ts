@@ -28,13 +28,13 @@ const getTheme = selector({
   },
 });
 
-const toggleTheme = selector({
-  key: 'toggleTheme',
-  get: ({ get }) => {
-    const theme = get(themeState) === 'light' ? 'dark' : 'light';
-    store.set('foundation.theme', theme);
-    document.documentElement.setAttribute('color-theme', theme);
-  },
-});
+// const toggleTheme = selector({
+//   key: 'toggleTheme',
+//   get: ({ get }) => {
+//     const theme = get(themeState) === 'light' ? 'dark' : 'light';
+//     store.set('foundation.theme', theme);
+//     document.documentElement.setAttribute('color-theme', theme);
+//   },
+// });
 
-export { refinedDateRangeState, getTheme, toggleTheme };
+export { refinedDateRangeState, getTheme };
