@@ -78,8 +78,12 @@ function TrendChart({ filteredData }: IProps) {
   };
 
   const unit = (item: string) => {
-    if (item === 'roas') return '%';
+    if (item === 'imp') return '%';
     if (item === 'click') return '번';
+    if (item === 'cost') return '원';
+    if (item === 'convValue') return '회';
+    if (item === 'roas') return '%';
+    if (item === 'total') return '원';
     return '';
   };
 
