@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { refinedDateRangeState } from 'states';
 
 import styles from './dashboard.module.scss';
+import MediaChannel from './MediaChannel';
 
 function Dashboard() {
   const [start, end] = useRecoilValue(refinedDateRangeState);
@@ -13,6 +14,7 @@ function Dashboard() {
         <div className={styles.title}>대시보드</div>
         <DatePicker />
       </div>
+      <MediaChannel />
     </div>
   );
 }

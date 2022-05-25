@@ -1,0 +1,43 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/typography';
+
+.tableWrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 331px;
+  overflow-x: auto;
+
+  .table {
+    width: 100%;
+    white-space: nowrap;
+    table-layout: fixed;
+
+    thead {
+      & th:nth-child(n) {
+        width: 12.5%;
+      }
+    }
+
+    .tr {
+      width: 100%;
+      border-bottom: 0.0625rem solid colors.$grey-50;
+
+      .rowHead {
+        text-align: left;
+      }
+
+      .th,
+      td {
+        padding: 0.8125rem 0;
+        text-align: right;
+
+        @include typography.font(0.75rem, 500, 0.875rem);
+      }
+
+      .th {
+        color: colors.$grey-300;
+      }
+    }
+  }
+}
