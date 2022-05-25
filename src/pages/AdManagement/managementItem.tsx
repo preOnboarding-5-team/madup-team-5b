@@ -3,9 +3,9 @@ import { IProps } from './index';
 
 function ManagementItem(manageItem: IProps) {
   const convertMoney = (money: number) => {
-    const tmpNum = Math.floor(money / 1000);
-    if (String(money).length > 5) {
-      const tmpNum2 = Math.floor(tmpNum / 10)
+    const tmpNum = Math.round(money / 1000);
+    if (money >= 100_000) {
+      const tmpNum2 = Math.round(tmpNum / 10)
         .toString()
         .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
       if (tmpNum % 10 === 0) return `${tmpNum2}만`;

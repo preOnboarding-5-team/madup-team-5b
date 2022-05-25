@@ -1,4 +1,4 @@
-import TrendDataBoard from 'component/TrendDataBoard';
+import TrendDataBoard from 'pages/Dashboard/TrendDataBoard';
 
 import styles from './dashboard.module.scss';
 
