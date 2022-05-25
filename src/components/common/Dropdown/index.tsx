@@ -43,7 +43,7 @@ function Dropdown({
           <CircleIcon width="0.3125rem" height="0.3125rem" fill={color} />
         )}
         <span className={styles.name}>{selected}</span>
-        <ArrowDownIcon width=".75rem" height=".5rem" />
+        <ArrowDownIcon className={styles.icon} width=".75rem" height=".5rem" />
       </button>
       <DropdownList
         type={type}

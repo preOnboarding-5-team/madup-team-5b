@@ -8,6 +8,10 @@
   height: 100%;
   background: colors.$main-bg;
 
+  :root[color-theme='dark'] & {
+    background-color: colors.$dark-main-bg;
+  }
+
   .section {
     display: flex;
     flex-direction: column;
