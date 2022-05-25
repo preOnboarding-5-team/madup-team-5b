@@ -6,7 +6,7 @@ type TDataRangeState = {
 };
 const dateRangeState = atom<TDataRangeState>({
   key: 'dateRangeState',
-  default: { start: new Date(), end: new Date() },
+  default: { start: new Date('2022-02-01'), end: new Date('2022-02-01') },
 });
 
 const selectedServiceState = atom({
