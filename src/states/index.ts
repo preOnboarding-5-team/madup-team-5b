@@ -2,8 +2,8 @@ import {
   dateRangeState,
   selectedServiceState,
   serviceListState,
-  trendFirstState,
-  trendSecondState,
+  firstTrendState,
+  secondTrendState,
   trendTermState,
   adListStatusState,
 } from './Atoms';
@@ -14,8 +14,8 @@ export {
   dateRangeState,
   selectedServiceState,
   serviceListState,
-  trendFirstState,
-  trendSecondState,
+  firstTrendState,
+  secondTrendState,
   trendTermState,
   adListStatusState,
 };

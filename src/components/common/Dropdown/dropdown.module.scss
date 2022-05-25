@@ -16,6 +16,7 @@
 
   .listContainer {
     position: absolute;
+    z-index: 2;
     background: colors.$white;
   }
 
@@ -24,6 +25,7 @@
   .small {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     &.inputContainer {
       background-color: colors.$grey-50;

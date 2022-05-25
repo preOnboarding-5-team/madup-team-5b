@@ -1,48 +1,60 @@
 import { MouseEvent } from 'react';
-import { SetterOrUpdater } from 'recoil';
 
+import { IDropdownList } from 'types/global.d';
+import { ArrowDownIcon, CircleIcon } from 'assets';
 import ItemAdder from './ItemAdder';
 
 import styles from './dropdown.module.scss';
 
-type TDropdownList = {
-  type: string;
-  setSelected: SetterOrUpdater<string>;
-  list: string[];
-  setList?: SetterOrUpdater<string[]>;
-  itemAdder: boolean;
-  isOpen: boolean;
-  toggleList: () => void;
-};
-
 function DropdownList({
   type,
+  selected,
   setSelected,
   list,
   setList,
   itemAdder,
   isOpen,
   toggleList,
-}: TDropdownList) {
+}: IDropdownList) {
   const dropdownList = list.map((item, idx) => {
     const key = `dropdownlist-key-${item}-${idx}`;
 
+    if (typeof item === 'string') {
+      const onClick = (e: MouseEvent<HTMLLIElement>) => {
+        const name = e.currentTarget.dataset.name as string;
+        setSelected(name);
+        toggleList();
+      };
+      return (
+        <li
+          key={key}
+          role="menuitem"
+          tabIndex={0}
+          data-name={item}
+          className={styles[type]}
+          onClick={onClick}
+        >
+          <span className={styles.name}>{item}</span>
+        </li>
+      );
+    }
     const onClick = (e: MouseEvent<HTMLLIElement>) => {
       const name = e.currentTarget.dataset.name as string;
-      setSelected(name);
+      setSelected({ name, color: item.color });
       toggleList();
     };
-
     return (
       <li
         key={key}
         role="menuitem"
         tabIndex={0}
-        data-name={item}
+        data-name={item.name}
         className={styles[type]}
         onClick={onClick}
       >
-        <span className={styles.name}>{item}</span>
+        <CircleIcon width="0.3125rem" height="0.3125rem" fill={item.color} />
+        <span className={styles.name}>{item.name}</span>
+        <ArrowDownIcon style={{ visibility: 'hidden' }} />
       </li>
     );
   });
