@@ -15,19 +15,6 @@ const columns = [
   'ROAS',
 ];
 const data: Record<string, DataItem> = {
-  google: {
-    channel: 'google',
-    date: '',
-    imp: 0,
-    click: 0,
-    cost: 0,
-    convValue: 0,
-    ctr: 0,
-    cvr: 0,
-    cpc: 0,
-    cpa: 0,
-    roas: 0,
-  },
   facebook: {
     channel: 'facebook',
     date: '',
@@ -54,6 +41,19 @@ const data: Record<string, DataItem> = {
     cpa: 0,
     roas: 0,
   },
+  google: {
+    channel: 'google',
+    date: '',
+    imp: 0,
+    click: 0,
+    cost: 0,
+    convValue: 0,
+    ctr: 0,
+    cvr: 0,
+    cpc: 0,
+    cpa: 0,
+    roas: 0,
+  },
   kakao: {
     channel: 'kakao',
     date: '',
@@ -69,10 +69,13 @@ const data: Record<string, DataItem> = {
   },
 };
 
+const startDate = Number('20220201');
+const endDate = Number('20220203');
+
 const totalData = MediaChannelData.map((d: DataItem) => {
   d.date = d.date.replaceAll('-', '');
   return d;
-});
+}).filter((d) => Number(d.date) >= startDate && Number(d.date) <= endDate);
 
 function cal() {
   totalData.forEach((d) => {
@@ -90,7 +93,7 @@ function cal() {
   return data;
 }
 
-const { google, facebook, naver, kakao } = cal();
+const { facebook, naver, google, kakao } = cal();
 
 function Table() {
   return (

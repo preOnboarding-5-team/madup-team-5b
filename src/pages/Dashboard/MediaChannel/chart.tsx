@@ -15,10 +15,13 @@ import _ from 'lodash';
 import { useEffect } from 'react';
 import CHART_STYLE from './chartStyle';
 
-const totalData = MediaChannelData.map((d) => {
+const startDate = Number('20220201');
+const endDate = Number('20220203');
+
+const totalData = MediaChannelData.map((d: DataItem) => {
   d.date = d.date.replaceAll('-', '');
   return d;
-});
+}).filter((d) => Number(d.date) >= startDate && Number(d.date) <= endDate);
 
 function Chart() {
   const dataStructure = [
@@ -79,7 +82,8 @@ function Chart() {
     return data;
   }
 
-  const { google, facebook, naver, kakao } = cal();
+  const { facebook, naver, google, kakao } = cal();
+
   return (
     <VictoryChart height={300} width={960} domainPadding={{ x: 50 }}>
       <VictoryAxis
@@ -102,39 +106,16 @@ function Chart() {
         }}
         tickFormat={(x) => `${x}%`}
       />
-      <VictoryStack colorScale={['#AC8AF8', '#85DA47', '#4FADF7', '#FFEB00']}>
-        <VictoryBar
-          data={google}
-          {...CHART_STYLE.bar}
-          labels={({ datum }) => datum.total.toLocaleString()}
-          labelComponent={
-            <VictoryTooltip
-              pointerOrientation="bottom"
-              flyoutWidth={100}
-              flyoutHeight={30}
-              pointerWidth={10}
-              cornerRadius={5}
-            />
-          }
-        />
-        <VictoryBar
-          data={facebook}
-          {...CHART_STYLE.bar}
-          labels={({ datum }) => datum.total.toLocaleString()}
-          labelComponent={
-            <VictoryTooltip
-              pointerOrientation="bottom"
-              flyoutWidth={100}
-              flyoutHeight={30}
-              pointerWidth={10}
-              cornerRadius={5}
-            />
-          }
-        />
+      <VictoryStack colorScale={['#4fadf7', '#85DA47', '#ac8af8', '#FFEB00']}>
+        <VictoryBar data={facebook} {...CHART_STYLE.bar} />
         <VictoryBar
           data={naver}
           {...CHART_STYLE.bar}
-          labels={({ datum }) => datum.total.toLocaleString()}
+          labels={({ datum }) => {
+            console.log(datum);
+
+            return datum.total.toLocaleString();
+          }}
           labelComponent={
             <VictoryTooltip
               pointerOrientation="bottom"
@@ -145,19 +126,11 @@ function Chart() {
             />
           }
         />
+        <VictoryBar data={google} {...CHART_STYLE.bar} />
         <VictoryBar
           data={kakao}
           {...CHART_STYLE.bar}
-          labels={({ datum }) => datum.total.toLocaleString()}
-          labelComponent={
-            <VictoryTooltip
-              pointerOrientation="bottom"
-              flyoutWidth={100}
-              flyoutHeight={30}
-              pointerWidth={10}
-              cornerRadius={5}
-            />
-          }
+          cornerRadius={{ top: 6 }}
         />
       </VictoryStack>
       <VictoryLegend
