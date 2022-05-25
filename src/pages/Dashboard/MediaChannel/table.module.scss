@@ -6,6 +6,7 @@
   align-items: center;
   width: 100%;
   height: 331px;
+  padding: 0 2.5rem;
   overflow-x: auto;
 
   .table {
@@ -32,6 +33,9 @@
         padding: 0.8125rem 0;
         text-align: right;
 
+        :root[color-theme='dark'] & {
+          color: colors.$grey-100;
+        }
         @include typography.font(0.75rem, 500, 0.875rem);
       }
 

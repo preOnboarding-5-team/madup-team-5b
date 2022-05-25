@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { selector } from 'recoil';
-import { dateRangeState } from './Atoms';
+import { dateRangeState, themeState } from './Atoms';
 
 const refinedDateRangeState = selector({
   key: 'refinedDateRangeState',
@@ -20,4 +20,12 @@ const refinedDateRangeState = selector({
   },
 });
 
-export { refinedDateRangeState };
+const getTheme = selector({
+  key: 'getTheme',
+  get: ({ get }) => {
+    const theme = get(themeState);
+    return theme;
+  },
+});
+
+export { refinedDateRangeState, getTheme };

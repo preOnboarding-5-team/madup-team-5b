@@ -51,19 +51,19 @@ function DataBox({ filteredData, filteredBeforeData }: IProps) {
 
     return value > 0 ? (
       <>
-        <HigherValueIcon />
+        <HigherValueIcon style={{ marginRight: '0.3125rem' }} />
         {convertNumber(Math.abs(value))}
       </>
     ) : (
       <>
-        <LowerValueIcon />
+        <LowerValueIcon style={{ marginRight: '0.3125rem' }} />
         {convertNumber(Math.abs(value))}
       </>
     );
   };
   // 아래 dl, dt, dd 넣을 지
   return (
-    <ul>
+    <ul className={styles.dataBoxContainer}>
       <li className={styles.dataBox}>
         <div className={styles.dataWrap}>
           <div className={styles.dataTitle}>ROAS</div>

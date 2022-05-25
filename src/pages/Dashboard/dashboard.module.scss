@@ -14,6 +14,10 @@
 
     .title {
       @include typography.font(1.625rem, 900, 1.875rem);
+
+      :root[color-theme='dark'] & {
+        color: colors.$grey-300;
+      }
     }
   }
 }

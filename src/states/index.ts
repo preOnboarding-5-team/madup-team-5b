@@ -2,24 +2,26 @@ import {
   dateRangeState,
   selectedServiceState,
   serviceListState,
-  trendFirstState,
-  trendSecondState,
+  firstTrendState,
+  secondTrendState,
   trendTermState,
-  adListState,
   adManagementItemState,
+  themeState,
+  adListStatusState,
 } from './Atoms';
 
-import { refinedDateRangeState } from './Selectors';
+import { refinedDateRangeState, getTheme } from './Selectors';
 
 export {
   dateRangeState,
   selectedServiceState,
   serviceListState,
-  trendFirstState,
-  trendSecondState,
+  firstTrendState,
+  secondTrendState,
   trendTermState,
-  adListState,
   adManagementItemState,
+  themeState,
+  adListStatusState,
 };
 
-export { refinedDateRangeState };
+export { refinedDateRangeState, getTheme };

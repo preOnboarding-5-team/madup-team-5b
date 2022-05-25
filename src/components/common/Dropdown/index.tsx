@@ -2,6 +2,7 @@ import { ArrowDownIcon, CircleIcon } from 'assets';
 import cx from 'classnames';
 import { useState } from 'react';
 import { SetterOrUpdater } from 'recoil';
+import { trendItem } from 'types/global.d';
 import DropdownList from './DropdownList';
 
 import styles from './dropdown.module.scss';
@@ -9,9 +10,9 @@ import styles from './dropdown.module.scss';
 type TDropdown = {
   type: string;
   selected: string;
-  setSelected: SetterOrUpdater<string>;
-  list: string[];
-  setList: SetterOrUpdater<string[]>;
+  setSelected: SetterOrUpdater<string> | SetterOrUpdater<trendItem>;
+  list: string[] | trendItem[];
+  setList?: SetterOrUpdater<string[]>;
   color?: string;
   itemAdder?: boolean;
 };
@@ -32,7 +33,7 @@ function Dropdown({
   };
 
   return (
-    <>
+    <div role="button" className={styles.dropdownContainer}>
       <button
         type="button"
         className={cx(styles.button, styles.dropdown, styles[type])}
@@ -42,10 +43,11 @@ function Dropdown({
           <CircleIcon width="0.3125rem" height="0.3125rem" fill={color} />
         )}
         <span className={styles.name}>{selected}</span>
-        <ArrowDownIcon width=".75rem" height=".5rem" />
+        <ArrowDownIcon className={styles.icon} width=".75rem" height=".5rem" />
       </button>
       <DropdownList
         type={type}
+        selected={selected}
         setSelected={setSelected}
         list={list}
         setList={setList}
@@ -53,7 +55,7 @@ function Dropdown({
         isOpen={isOpen}
         toggleList={toggleList}
       />
-    </>
+    </div>
   );
 }
 

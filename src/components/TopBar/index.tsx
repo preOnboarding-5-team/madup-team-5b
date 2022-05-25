@@ -4,12 +4,28 @@ import {
   NoticeIcon,
   SettingsIcon,
 } from 'assets';
+import { useRecoil } from 'hooks';
+import { themeState } from 'states';
 import styles from './topbar.module.scss';
 
 function TopBar() {
+  const [theme, settheme] = useRecoil(themeState);
+  const handleThemeClick = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    settheme(newTheme);
+  };
   return (
     <header className={styles.topBar}>
       <div className={styles.container}>
+        <div>
+          <button
+            type="button"
+            onClick={handleThemeClick}
+            className={styles.theme}
+          >
+            {theme}
+          </button>
+        </div>
         <div className={styles.notice}>
           <NoticeIcon
             width="1.5rem"
@@ -19,6 +35,7 @@ function TopBar() {
           <CircleIcon
             width="0.3125rem"
             height="0.3125rem"
+            fill="#ea3a4b"
             className={styles.circleIcon}
           />
         </div>

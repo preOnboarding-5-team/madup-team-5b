@@ -4,16 +4,27 @@
 
 .snb {
   display: flex;
-  width: 100%;
+  justify-content: center;
   max-width: 20rem;
   background: colors.$white;
   box-shadow: 0.25rem 0 0.625rem rgb(0 0 0 / 4%);
+
+  :root[color-theme='dark'] & {
+    background-color: colors.$dark-snb-bg;
+  }
 
   .container {
     display: flex;
     flex-direction: column;
     height: 61.5rem;
     padding: 0 2.5rem;
+
+    @include responsive.breakpoint('lg') {
+      padding: 0 1.5rem;
+    }
+    @include responsive.breakpoint('md') {
+      padding: 0 1rem;
+    }
 
     .logo {
       height: 9.375rem;
@@ -54,8 +65,30 @@
           width: 15rem;
           height: 3.75rem;
           padding: 1.375rem 1.25rem;
+          color: colors.$black;
           cursor: pointer;
           border-radius: 0.625rem;
+
+          :root[color-theme='dark'] & {
+            color: colors.$grey-300;
+
+            .icon {
+              fill: colors.$grey-300;
+            }
+
+            &:hover,
+            &.active {
+              background: colors.$grey-300;
+
+              .icon {
+                fill: colors.$dark-primary;
+              }
+
+              .name {
+                color: colors.$dark-primary;
+              }
+            }
+          }
 
           &:hover,
           &.active {
@@ -87,6 +120,10 @@
       padding: 1.875rem 1.25rem;
       background: colors.$secondary-01;
       border-radius: 0.625rem;
+
+      :root[color-theme='dark'] & {
+        background-color: colors.$dark-secondary-01;
+      }
 
       .content {
         margin-left: 0.5rem;

@@ -20,14 +20,14 @@ const serviceListState = atom({
   default: ['매드업'],
 });
 
-const trendFirstState = atom({
-  key: 'TrendFirstState',
-  default: 'ROAS',
+const firstTrendState = atom({
+  key: 'firstTrendState',
+  default: { name: 'ROAS', color: '#4fadf7' },
 });
 
-const trendSecondState = atom({
-  key: 'TrendSecondState',
-  default: '클릭수',
+const secondTrendState = atom({
+  key: 'secondTrendState',
+  default: { name: '클릭수', color: '#ffeb00' },
 });
 
 const trendTermState = atom({
@@ -35,9 +35,14 @@ const trendTermState = atom({
   default: '주간',
 });
 
-const adListState = atom({
+const adListStatusState = atom({
   key: 'adListState',
-  default: '전체',
+  default: '전체 광고',
+});
+
+const themeState = atom({
+  key: 'themeState',
+  default: 'light',
 });
 
 const adManagementItemState = atom({
@@ -49,9 +54,10 @@ export {
   dateRangeState,
   selectedServiceState,
   serviceListState,
-  trendFirstState,
-  trendSecondState,
+  firstTrendState,
+  secondTrendState,
   trendTermState,
-  adListState,
   adManagementItemState,
+  themeState,
+  adListStatusState,
 };

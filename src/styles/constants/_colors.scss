@@ -16,36 +16,10 @@ $graph-01: #4fadf7;
 $graph-02: #85da45;
 $graph-03: #ac8af8;
 $graph-04: #ffeb00;
-/* stylelint-disable scss/dollar-variable-pattern */
-// Grayscale
-$WHITE: #fff;
-$BLACK: #000;
-$GRAY2: #222;
-$GRAY3: #333;
-$GRAY6: #666;
-$GRAYA: #aaa;
-$GRAYD: #d0d0d0;
-$GRAYE: #fbfbfb;
 
-// Chromatic
-$RED: #ff3b30;
-$ORANGE: #ff9500;
-$YELLOW: #fc0;
-$GREEN: #34c759;
-$TEAL: #5ac8fa;
-$BLUE: #007aff;
-$INDIGO: #5856d6;
-$PURPLE: #af52de;
-$PINK: #ff2d55;
-$TITLE: #3a474e;
-$grey_300: #94a2ad;
-$TASKS_TITLE: #8f99bf;
-$TASK_ITEM_TITLE: #4f566f;
-$graph_01: #4fadf7;
-$graph_02: #85da45;
-$graph_03: #ac8af8;
-$graph_04: #ffeb00;
-$grey_50: #edeff1;
-$grey_800: #3a474e;
-$Primary: #586cf5;
-$grey_100: #d1d8dc;
+$dark-snb-bg: #222;
+$dark-main-bg: rgb(50 50 50);
+$dark-wrap-bg: rgb(80 80 80);
+$dark-secondary-01: #576770;
+$dark-primary: #364293;
+$dark-point: #3a474e;

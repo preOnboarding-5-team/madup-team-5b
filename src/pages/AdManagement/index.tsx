@@ -1,14 +1,10 @@
-import { MouseEvent, useEffect, useState } from 'react';
-import { AdListData } from 'utils';
-import { ArrowDownIcon, CheckIcon } from 'assets';
-import cx from 'classnames';
-import { adListState, adManagementItemState } from 'states/Atoms';
-import { useRecoil } from 'hooks/useRecoil';
-import styles from './adManagement.module.scss';
+import { MouseEvent, useState } from 'react';
+import { adListStatusState, adManagementItemState } from 'states/Atoms';
+import { useRecoil } from 'hooks';
 
+import Dropdown from 'components/common/Dropdown';
 import ManagementItem from './managementItem';
-
-const SHOW_STATUS = ['전체', '진행중', '중단됨'];
+import styles from './adManagement.module.scss';
 
 export interface IProps {
   id: number;
@@ -26,26 +22,19 @@ export interface IProps {
 }
 
 function AdManagement() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectStatus, setSelectStatus] = useRecoil(adListState);
   const [managementItemStatus, setManagementItemStatus] = useRecoil(
     adManagementItemState
   );
   const [isNew, setIsNew] = useState(0);
 
-  const handledropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
+  const [adListStatus, setAdListStatus] = useRecoil(adListStatusState);
 
-  const handleSelectStatus = (e: MouseEvent<HTMLButtonElement>) => {
-    setSelectStatus(e.currentTarget.dataset.value || '');
-    setIsDropdownOpen((prev) => !prev);
-  };
+  const SHOW_STATUS = ['전체 광고', '진행중', '중단됨'];
 
   const cardStructure = managementItemStatus.ads
     .filter((data) => {
-      if (selectStatus === '진행중') return data.status === 'active';
-      if (selectStatus === '중단됨') return data.status === 'ended';
+      if (adListStatus === '진행중') return data.status === 'active';
+      if (adListStatus === '중단됨') return data.status === 'ended';
       return data;
     })
     .map((manageItem) => {
@@ -84,50 +73,28 @@ function AdManagement() {
   };
   return (
     <div className={styles.adManagement}>
-      <div className={styles.topContents}>
-        <div className={styles.selectWrapper}>
+      <div className={styles.titleContainer}>
+        <div className={styles.title}>광고 관리</div>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.topContents}>
+          <Dropdown
+            type="medium"
+            selected={adListStatus}
+            setSelected={setAdListStatus}
+            list={SHOW_STATUS}
+          />
           <button
             type="button"
-            className={styles.select}
-            onClick={handledropdown}
+            className={styles.btnMakeAd}
+            data-value="create"
+            onClick={handleAddBtn}
           >
-            <span>{selectStatus}</span>
-            <ArrowDownIcon className={styles.selectIcon} />
+            광고 만들기
           </button>
-          <ul
-            className={cx(styles.selectList, {
-              [styles.isOpen]: isDropdownOpen,
-            })}
-          >
-            {SHOW_STATUS.map((item: string) => {
-              return (
-                <li key={item}>
-                  <button
-                    type="button"
-                    className={styles.selectContent}
-                    onClick={handleSelectStatus}
-                    data-value={item}
-                  >
-                    <span>{item}</span>
-                    {selectStatus === item && (
-                      <CheckIcon className={styles.selectContentIcon} />
-                    )}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
         </div>
-        <button
-          type="button"
-          className={styles.btnMakeAd}
-          data-value="create"
-          onClick={handleAddBtn}
-        >
-          광고 만들기
-        </button>
+        <div className={styles.bottomContents}>{cardStructure}</div>
       </div>
-      <div className={styles.bottomContents}>{cardStructure}</div>
     </div>
   );
 }

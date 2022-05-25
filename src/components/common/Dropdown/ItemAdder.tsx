@@ -1,18 +1,20 @@
 import cx from 'classnames';
 import { FormEvent, useState } from 'react';
 import { SetterOrUpdater } from 'recoil';
+import { trendItem } from 'types/global.d';
 
 import styles from './dropdown.module.scss';
 
 type TItemAdder = {
   type: string;
   label: string;
-  list: string[];
-  setList: SetterOrUpdater<string[]>;
+  list: string[] | trendItem[];
+  setList?: SetterOrUpdater<string[]>;
 };
 
 function ItemAdder({ type, label, list, setList }: TItemAdder) {
   const [isAdding, setIsAdding] = useState<boolean>(false);
+
   const toggleIsAdding = () => {
     setIsAdding((prev) => !prev);
   };
@@ -23,8 +25,10 @@ function ItemAdder({ type, label, list, setList }: TItemAdder) {
     if (list.findIndex((service) => service === target.value) !== -1) {
       e.currentTarget.classList.add(styles.invalid);
     } else {
-      const newList = [...list, target.value];
-      setList(newList);
+      const newList = [...list, target.value] as string[];
+      if (setList) {
+        setList(newList);
+      }
       toggleIsAdding();
       e.currentTarget.reset();
     }

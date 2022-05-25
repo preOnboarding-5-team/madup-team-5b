@@ -1,232 +1,160 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/mixins/responsive';
+@use 'src/styles/mixins/typography';
 
 .adManagement {
   width: 100%;
-  height: 75.5rem;
 
   .titleContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
     height: 5rem;
-    padding: 1.5625rem 2.5rem;
+    padding: 2.3125rem 0;
 
     .title {
-      // @include typography.font(1.625rem, 900, 1.875rem);
+      :root[color-theme='dark'] & {
+        color: colors.$grey-300;
+      }
+
+      @include typography.font(1.625rem, 900, 1.875rem);
     }
   }
 
-  // height: 1020px;
-  padding: 40px 20px 40px 40px;
-  margin: 20px;
-  background: white;
-  border: 1px solid rgb(248 244 244);
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 4%);
+  .container {
+    padding: 2.5rem;
+    margin: 1.875rem 0;
+    background: colors.$white;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.25rem 0.625rem rgb(0 0 0 / 4%);
 
-  .topContents {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding-bottom: 20px;
+    :root[color-theme='dark'] & {
+      background-color: colors.$dark-snb-bg;
+    }
 
-    // font-family: Roboto;
-    font-style: normal;
-    line-height: 16px;
+    @include responsive.breakpoint('md') {
+      padding: 1.25rem;
+    }
 
-    .selectWrapper {
-      position: relative;
+    .topContents {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 2.5rem;
+      font-style: normal;
+      line-height: 1rem;
 
-      .select {
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-between;
-        width: 123px;
-        height: 40px;
-        padding: 12px 20px;
-        font-size: 14px;
-        font-weight: 14px;
-        line-height: 14px;
-        color: colors.$grey_800;
-        background: colors.$WHITE;
-        border: 1px solid colors.$grey_100;
-        border-radius: 10px;
+      .btnMakeAd {
+        padding: 0.75rem 1.25rem;
+        color: colors.$white;
+        background: colors.$primary;
+        border-radius: 0.625rem;
 
-        .selectIcon {
-          width: 12px;
-          height: 13px;
-        }
+        @include typography.font(0.875rem, 700, 1rem);
+      }
+    }
+
+    .bottomContents {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      width: 100%;
+
+      @include responsive.breakpoint('lg') {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
       }
 
-      .selectList {
-        position: absolute;
-        top: 45px;
-        width: 123px;
-        padding: 5px;
-        text-align: center;
-        pointer-events: none;
-        background: colors.$WHITE;
-        border: 1px solid colors.$grey_100;
-        border-radius: 10px;
-        opacity: 0;
-        transition: 0.3s;
-        transform: translateY(-1%);
+      @include responsive.breakpoint('sm') {
+        grid-template-columns: repeat(1, 1fr);
+      }
 
-        .selectContent {
+      .adCard {
+        box-sizing: border-box;
+        padding: 1.25rem;
+        background: colors.$white;
+        border: 0.0625rem solid colors.$grey-100;
+        border-radius: 0.625rem;
+
+        :root[color-theme='dark'] & {
+          background: colors.$grey-300;
+        }
+
+        p {
+          margin: 1.25rem 0 2.5rem;
+          color: colors.$grey-800;
+
+          @include typography.font(1rem, 700, 1.1875rem);
+        }
+
+        dl {
           display: flex;
           justify-content: space-between;
-          width: 100%;
-          padding: 12px 15px;
-          font-size: 14px;
-          color: colors.$grey_800;
-          cursor: pointer;
-          border-radius: 10px;
+          padding: 13px 0;
+          border-top: 0.0625rem solid colors.$grey-50;
 
-          .selectContentIcon {
-            height: 14px;
-          }
-
-          &:hover {
-            background: whitesmoke;
-          }
-        }
-      }
-
-      .isOpen {
-        pointer-events: auto;
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .btnMakeAd {
-      box-sizing: border-box;
-      width: 108px;
-      min-width: 108px;
-      height: 40px;
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 700;
-      color: colors.$WHITE;
-      background: colors.$Primary;
-      border-radius: 10px;
-    }
-  }
-
-  .bottomContents {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-
-    .adCard {
-      box-sizing: border-box;
-
-      // width: 45%;
-      width: 305px;
-      min-width: 245px;
-      max-width: 305px;
-      height: 420px;
-      padding: 20px;
-      margin: 20px 20px 0 0;
-      background: colors.$WHITE;
-      border: 1px solid colors.$grey_100;
-      border-radius: 10px;
-
-      p {
-        height: 19px;
-        margin: 20px 0 40px;
-
-        // font-family: Roboto;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 19px;
-        color: colors.$grey_800;
-
-        .adName {
-          width: 100%;
-        }
-      }
-
-      ul {
-        border-top: 1px solid colors.$grey_50;
-
-        li {
-          dl {
+          div {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 13px 0;
-
-            // font-family: Roboto;
-            font-size: 12px;
-            font-style: normal;
-            line-height: 14px;
-            border-bottom: 1px solid colors.$grey_50;
+            padding: 0.8125rem 0;
+            border-bottom: 0.0625rem solid colors.$grey-50;
 
             .title {
-              width: 5rem;
-              height: 13px;
-              font-weight: 500;
-              line-height: 13px;
-              color: colors.$grey_300;
+              width: 40%;
+              color: colors.$grey-300;
+
+              :root[color-theme='dark'] & {
+                color: colors.$grey-50;
+              }
+              @include typography.font(0.75rem, 500, 0.875rem);
             }
 
             .content {
-              width: 10rem;
-              height: 14px;
-              font-size: 12px;
+              width: 60%;
               font-weight: 700;
-              line-height: 14px;
-              color: colors.$grey_800;
+              color: colors.$grey-800;
               text-align: left;
 
+              @include typography.font(0.75rem, 700, 0.875rem);
+
               .contentInput {
-                height: 16px;
-                font-size: 12px;
+                width: 60%;
                 font-weight: 700;
-                line-height: 16px;
-                color: colors.$grey_800;
-                text-align: left;
+                color: colors.$grey-800;
                 border: 1px solid colors.$grey_800;
                 border-radius: 2px;
               }
             }
           }
         }
+
+        .btnWrapper {
+          display: flex;
+          justify-content: space-between;
+
+          .modifyButton,
+          .cancelButton {
+            padding: 0.75rem 1.25rem;
+            margin-top: 1.25rem;
+            color: colors.$grey-800;
+            background: colors.$white;
+            border: 0.0625rem solid colors.$grey-100;
+            border-radius: 0.625rem;
+
+            :root[color-theme='dark'] & {
+              background: colors.$grey-50;
+            }
+
+            @include typography.font(0.875rem, 700, 1rem);
+          }
+
+          .modifying {
+            color: colors.$white;
+            background: colors.$primary;
+          }
+        }
       }
 
-      .btnWrapper {
-        display: flex;
-        justify-content: space-between;
-
-        .btnModify,
-        .btnCancel {
-          box-sizing: border-box;
-          align-items: flex-start;
-          width: 92px;
-          height: 40px;
-          padding: 12px 20px;
-          margin-top: 20px;
-          font-size: 14px;
-          line-height: 16px;
-          color: colors.$grey_800;
-          background: colors.$WHITE;
-          border: 1px solid colors.$grey_100;
-          border-radius: 10px;
-        }
-
-        .isModify {
-          color: colors.$WHITE;
-          background: colors.$Primary;
-        }
+      .isModify {
+        border: 1px solid colors.$primary;
       }
-    }
-
-    .isModify {
-      border: 1px solid colors.$Primary;
     }
   }
 }

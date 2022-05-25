@@ -210,14 +210,14 @@ function ManagementItem({ manageItem, isNew, setIsNew }: IItem) {
       <div className={styles.btnWrapper}>
         <button
           type="submit"
-          className={cx(styles.btnModify, { [styles.isModify]: !isModify })}
+          className={cx(styles.modifyButton, { [styles.modifying]: !isModify })}
         >
           {isModify ? '수정하기' : '저장'}
         </button>
         {!isModify && (
           <button
             type="button"
-            className={styles.btnCancel}
+            className={styles.cancelButton}
             data-id={String(id) === '' ? isNew : id}
             onClick={handleCancelBtn}
           >

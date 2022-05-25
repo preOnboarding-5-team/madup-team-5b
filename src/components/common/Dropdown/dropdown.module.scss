@@ -1,19 +1,49 @@
 @use 'src/styles/constants/colors';
 @use 'src/styles/mixins/typography';
 
-.dropdown {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.dropdownContainer {
+  position: static;
 
-  .name {
-    @include typography.font(1rem, 700, 1.1875rem);
+  .dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    :root[color-theme='dark'] & {
+      color: colors.$grey-100;
+
+      .icon {
+        fill: colors.$grey-300;
+      }
+    }
+
+    .name {
+      @include typography.font(1rem, 700, 1.1875rem);
+    }
+  }
+}
+
+.listContainer {
+  position: absolute;
+  z-index: 2;
+  background: colors.$white;
+
+  :root[color-theme='dark'] & {
+    background: colors.$dark-snb-bg;
+
+    .name {
+      color: colors.$grey-50;
+    }
   }
 }
 
 .large,
 .medium,
 .small {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   &.inputContainer {
     background-color: colors.$grey-50;
   }
@@ -21,14 +51,30 @@
   &:hover {
     background: colors.$grey-50;
 
-    .name {
-      color: colors.$primary;
+    :root[color-theme='dark'] & {
+      background: colors.$grey-300;
     }
-  }
 
-  .invalid::after {
-    color: colors.$secondary-02;
-    content: '중복된 이름입니다.';
+    &:hover {
+      background: colors.$grey-50;
+
+      :root[color-theme='dark'] & {
+        background: colors.$grey-300;
+      }
+
+      .name {
+        color: colors.$primary;
+
+        :root[color-theme='dark'] & {
+          color: colors.$dark-primary;
+        }
+      }
+    }
+
+    .invalid::after {
+      color: colors.$secondary-02;
+      content: '중복된 이름입니다.';
+    }
   }
 }
 
