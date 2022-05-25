@@ -1,1 +1,37 @@
 @use '/src/styles/constants/colors';
+
+.tableWrap {
+  width: 1000px;
+  margin: 0 auto;
+  overflow-x: scroll;
+
+  .table {
+    width: 100%;
+    white-space: nowrap;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    .tr {
+      width: 1000px;
+      height: 30px;
+      border-bottom: 1px solid colors.$grey_50;
+    }
+
+    .rowHead {
+      text-align: left;
+    }
+
+    .th,
+    td {
+      padding: 20px 50px;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .th {
+      color: colors.$grey_300;
+    }
+  }
+}

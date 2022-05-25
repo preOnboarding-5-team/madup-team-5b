@@ -1,7 +1,13 @@
 import { Dot } from 'asset';
+import { MediaChannelData } from 'utils';
 import styles from './mediaChannel.module.scss';
 import Chart from './chart';
-import Graph from './table';
+import Table from './table';
+
+const totalData = MediaChannelData.map((d) => {
+  d.date = d.date.replaceAll('-', '');
+  return d;
+});
 
 function MediaChannel() {
   return (
@@ -10,22 +16,9 @@ function MediaChannel() {
       <div className={styles.wrap}>
         <div className={styles.top}>
           <Chart />
-          <div className={styles.dots}>
-            <Dot className={styles.dot} />
-            <span>페이스북</span>
-
-            <Dot className={styles.dot} />
-            <span>네이버</span>
-
-            <Dot className={styles.dot} />
-            <span>구글</span>
-
-            <Dot className={styles.dot} />
-            <span>카카오</span>
-          </div>
         </div>
         <div className={styles.bottom}>
-          <Graph />
+          <Table />
         </div>
       </div>
     </div>

@@ -37,36 +37,6 @@
     height: 50%;
     padding-bottom: 5%;
     border-radius: 20px;
-
-    .dots {
-      display: flex;
-      float: right;
-      margin-right: 80px;
-
-      .dot {
-        margin: 0 10px 0 50px;
-
-        &:nth-child(1) {
-          fill: colors.$graph_01;
-        }
-
-        &:nth-child(3) {
-          fill: colors.$graph_02;
-        }
-
-        &:nth-child(5) {
-          fill: colors.$graph_03;
-        }
-
-        &:nth-child(7) {
-          fill: colors.$graph_04;
-        }
-      }
-
-      span {
-        color: colors.$grey_300;
-      }
-    }
   }
 
   .bottom {
