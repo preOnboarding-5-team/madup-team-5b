@@ -1,30 +1,33 @@
+/* stylelint-disable scss/dollar-variable-pattern */
 // Grayscale
-$WHITE: #ffffff;
-$BLACK: #000000;
-$GRAY2: #222222;
-$GRAY3: #333333;
-$GRAY6: #666666;
-$GRAYA: #aaaaaa;
-$GRAYD: #dddddd;
-$GRAYE: #eeeeee;
+$WHITE: #fff;
+$BLACK: #000;
+$GRAY2: #222;
+$GRAY3: #333;
+$GRAY6: #666;
+$GRAYA: #aaa;
+$GRAYD: #d0d0d0;
+$GRAYE: #fbfbfb;
 
 // Chromatic
 $RED: #ff3b30;
 $ORANGE: #ff9500;
-$YELLOW: #ffcc00;
+$YELLOW: #fc0;
 $GREEN: #34c759;
 $TEAL: #5ac8fa;
 $BLUE: #007aff;
 $INDIGO: #5856d6;
 $PURPLE: #af52de;
 $PINK: #ff2d55;
-$BIG_TITLE: #1f315b;
+$TITLE: #3a474e;
+$grey_300: #94a2ad;
 $TASKS_TITLE: #8f99bf;
 $TASK_ITEM_TITLE: #4f566f;
-
-$GREY50: #edeff1;
-$GREY100: #d1d8dc;
-$GREY300: #94a2ad;
-$GREY800: #3a474e;
-
-$PRIMARY: #586cf5;
+$graph_01: #4fadf7;
+$graph_02: #85da45;
+$graph_03: #ac8af8;
+$graph_04: #ffeb00;
+$grey_50: #edeff1;
+$grey_800: #3a474e;
+$Primary: #586cf5;
+$grey_100: #d1d8dc;
