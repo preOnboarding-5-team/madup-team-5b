@@ -86,6 +86,9 @@
         }
 
         dl {
+          display: flex;
+          justify-content: space-between;
+          padding: 13px 0;
           border-top: 0.0625rem solid colors.$grey-50;
 
           div {
@@ -105,27 +108,52 @@
 
             .content {
               width: 60%;
+              font-weight: 700;
               color: colors.$grey-800;
+              text-align: left;
 
               @include typography.font(0.75rem, 700, 0.875rem);
+
+              .contentInput {
+                width: 60%;
+                font-weight: 700;
+                color: colors.$grey-800;
+                border: 1px solid colors.$grey_800;
+                border-radius: 2px;
+              }
             }
           }
         }
 
-        .modifyButton {
-          padding: 0.75rem 1.25rem;
-          margin-top: 1.25rem;
-          color: colors.$grey-800;
-          background: colors.$white;
-          border: 0.0625rem solid colors.$grey-100;
-          border-radius: 0.625rem;
+        .btnWrapper {
+          display: flex;
+          justify-content: space-between;
 
-          :root[color-theme='dark'] & {
-            background: colors.$grey-50;
+          .modifyButton,
+          .cancelButton {
+            padding: 0.75rem 1.25rem;
+            margin-top: 1.25rem;
+            color: colors.$grey-800;
+            background: colors.$white;
+            border: 0.0625rem solid colors.$grey-100;
+            border-radius: 0.625rem;
+
+            :root[color-theme='dark'] & {
+              background: colors.$grey-50;
+            }
+
+            @include typography.font(0.875rem, 700, 1rem);
           }
 
-          @include typography.font(0.875rem, 700, 1rem);
+          .modifying {
+            color: colors.$white;
+            background: colors.$primary;
+          }
         }
+      }
+
+      .isModify {
+        border: 1px solid colors.$primary;
       }
     }
   }

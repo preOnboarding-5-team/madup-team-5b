@@ -1,10 +1,9 @@
-import { AdListData } from 'utils';
+import { MouseEvent, useState } from 'react';
+import { adListStatusState, adManagementItemState } from 'states/Atoms';
 import { useRecoil } from 'hooks';
-import { adListStatusState } from 'states';
 
 import Dropdown from 'components/common/Dropdown';
 import ManagementItem from './managementItem';
-
 import styles from './adManagement.module.scss';
 
 export interface IProps {
@@ -23,20 +22,55 @@ export interface IProps {
 }
 
 function AdManagement() {
+  const [managementItemStatus, setManagementItemStatus] = useRecoil(
+    adManagementItemState
+  );
+  const [isNew, setIsNew] = useState(0);
+
   const [adListStatus, setAdListStatus] = useRecoil(adListStatusState);
 
   const SHOW_STATUS = ['전체 광고', '진행중', '중단됨'];
 
-  const cardStructure = AdListData.ads
+  const cardStructure = managementItemStatus.ads
     .filter((data) => {
       if (adListStatus === '진행중') return data.status === 'active';
       if (adListStatus === '중단됨') return data.status === 'ended';
       return data;
     })
     .map((manageItem) => {
-      return <ManagementItem {...manageItem} key={manageItem.id} />;
+      return (
+        <ManagementItem
+          manageItem={manageItem}
+          key={manageItem.id}
+          isNew={isNew}
+          setIsNew={setIsNew}
+        />
+      );
     });
 
+  const newItem = {
+    id: managementItemStatus.count + 1,
+    adType: '',
+    title: '',
+    budget: 0,
+    status: '',
+    startDate: '',
+    endDate: '',
+    report: {
+      cost: 0,
+      convValue: 0,
+      roas: 0,
+    },
+  };
+
+  const handleAddBtn = (e: MouseEvent<HTMLButtonElement>) => {
+    setManagementItemStatus((managementItemStatus) => ({
+      ...managementItemStatus,
+      ads: [...managementItemStatus.ads, newItem],
+      count: managementItemStatus.count + 1,
+    }));
+    setIsNew(managementItemStatus.count + 1);
+  };
   return (
     <div className={styles.adManagement}>
       <div className={styles.titleContainer}>
@@ -54,6 +88,7 @@ function AdManagement() {
             type="button"
             className={styles.btnMakeAd}
             data-value="create"
+            onClick={handleAddBtn}
           >
             광고 만들기
           </button>

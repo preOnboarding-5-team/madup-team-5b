@@ -5,6 +5,7 @@ import {
   firstTrendState,
   secondTrendState,
   trendTermState,
+  adManagementItemState,
   themeState,
   adListStatusState,
 } from './Atoms';
@@ -18,6 +19,7 @@ export {
   firstTrendState,
   secondTrendState,
   trendTermState,
+  adManagementItemState,
   themeState,
   adListStatusState,
 };
