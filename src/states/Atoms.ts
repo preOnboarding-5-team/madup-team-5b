@@ -52,7 +52,6 @@ export {
   trendFirstState,
   trendSecondState,
   trendTermState,
- adListState,
   themeState,
   adListStatusState,
 
