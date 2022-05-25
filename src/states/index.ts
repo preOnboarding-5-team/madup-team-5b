@@ -8,7 +8,6 @@ import {
   themeState,
   adListStatusState,
 } from './Atoms';
-
 import { refinedDateRangeState, getTheme, toggleTheme } from './Selectors';
 
 export {
