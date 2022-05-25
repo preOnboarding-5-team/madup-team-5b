@@ -6,9 +6,10 @@ import {
   trendSecondState,
   trendTermState,
   adListState,
+  themeState,
 } from './Atoms';
 
-import { refinedDateRangeState } from './Selectors';
+import { refinedDateRangeState, getTheme, toggleTheme } from './Selectors';
 
 export {
   dateRangeState,
@@ -18,6 +19,7 @@ export {
   trendSecondState,
   trendTermState,
   adListState,
+  themeState,
 };
 
-export { refinedDateRangeState };
+export { refinedDateRangeState, getTheme, toggleTheme };

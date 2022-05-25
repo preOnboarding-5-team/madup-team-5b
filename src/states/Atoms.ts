@@ -1,4 +1,5 @@
 import { atom } from 'recoil';
+import store from 'store';
 
 type TDataRangeState = {
   start: Date | null;
@@ -39,6 +40,11 @@ const adListState = atom({
   default: '전체',
 });
 
+const themeState = atom({
+  key: 'themeState',
+  default: 'light',
+});
+
 export {
   dateRangeState,
   selectedServiceState,
@@ -47,4 +53,5 @@ export {
   trendSecondState,
   trendTermState,
   adListState,
+  themeState,
 };
