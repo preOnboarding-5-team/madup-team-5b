@@ -7,6 +7,9 @@ import { ReactComponent as NoticeIcon } from './svgs/notice-icon.svg';
 import { ReactComponent as SettingsIcon } from './svgs/settings-icon.svg';
 import { ReactComponent as DefaultProfileIcon } from './svgs/default-profile-icon.svg';
 import { ReactComponent as CircleIcon } from './svgs/circle-icon.svg';
+import { ReactComponent as CheckIcon } from './svgs/check-icon.svg';
+import { ReactComponent as HigherValueIcon } from './svgs/higher-value-icon.svg';
+import { ReactComponent as LowerValueIcon } from './svgs/lower-value-icon.svg';
 
 export {
   LeverLogo,
@@ -18,4 +21,7 @@ export {
   SettingsIcon,
   DefaultProfileIcon,
   CircleIcon,
+  CheckIcon,
+  HigherValueIcon,
+  LowerValueIcon,
 };
