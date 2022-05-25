@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
 import MainLayout from 'layouts/MainLayout';
-import { useRecoilValue } from 'recoil';
 import { themeState } from 'states';
 import { useEffect } from 'react';
 import { useRecoil } from 'hooks';
