@@ -10,7 +10,7 @@ import {
   VictoryTooltip,
 } from 'victory';
 
-import { DataItem } from 'types/global.d';
+import { ITotalData } from 'types/global.d';
 import _ from 'lodash';
 import { CHART_STYLE } from './chartStyle';
 
@@ -23,13 +23,13 @@ const dataStructure = [
 ];
 const tickFormat = ['광고비', '매출', '노출 수', '클릭 수', '전환 수'];
 
-function cal(totalData: DataItem[]) {
+function cal(totalData: ITotalData[]) {
   const dataSum = {
     cost: 0,
-    convValue: 0,
+    sales: 0,
     imp: 0,
     click: 0,
-    cvr: 0,
+    convValue: 0,
   };
 
   const data: Record<
@@ -44,30 +44,32 @@ function cal(totalData: DataItem[]) {
 
   totalData.forEach((d) => {
     dataSum.cost += d.cost;
-    dataSum.roas += d.roas;
+    dataSum.sales += d.sales;
     dataSum.imp += d.imp;
-    dataSum.ctr += d.ctr;
-    dataSum.cvr += d.cvr;
+    dataSum.click += d.click;
+    dataSum.convValue += d.convValue;
     data[d.channel].find((item) => item.category === '광고비')!.total += d.cost;
-    data[d.channel].find((item) => item.category === '매출')!.total += d.roas;
+    data[d.channel].find((item) => item.category === '매출')!.total += d.sales;
     data[d.channel].find((item) => item.category === '노출 수')!.total += d.imp;
-    data[d.channel].find((item) => item.category === '클릭 수')!.total += d.ctr;
-    data[d.channel].find((item) => item.category === '전환 수')!.total += d.cvr;
+    data[d.channel].find((item) => item.category === '클릭 수')!.total +=
+      d.click;
+    data[d.channel].find((item) => item.category === '전환 수')!.total +=
+      d.convValue;
   });
 
   Object.entries(data).forEach(([key, values]) => {
     values[0].value = (values[0].total / dataSum.cost) * 100;
-    values[1].value = (values[1].total / dataSum.roas) * 100;
+    values[1].value = (values[1].total / dataSum.sales) * 100;
     values[2].value = (values[2].total / dataSum.imp) * 100;
-    values[3].value = (values[3].total / dataSum.ctr) * 100;
-    values[4].value = (values[4].total / dataSum.cvr) * 100;
+    values[3].value = (values[3].total / dataSum.click) * 100;
+    values[4].value = (values[4].total / dataSum.convValue) * 100;
   });
 
   return data;
 }
 
 interface Props {
-  totalData: DataItem[];
+  totalData: ITotalData[];
 }
 
 function Chart({ totalData }: Props) {
@@ -143,8 +145,8 @@ function Chart({ totalData }: Props) {
         />
       </VictoryStack>
       <VictoryLegend
-        x={530}
-        y={280}
+        x={560}
+        y={300}
         orientation="horizontal"
         gutter={60}
         style={{

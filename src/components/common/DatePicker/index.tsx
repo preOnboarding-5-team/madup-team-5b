@@ -18,7 +18,7 @@ function DatePicker() {
 
   const onCalendarClose = () => {
     if (!dataRange.end) {
-      setDataRangeState({ ...dataRange, end: new Date() });
+      setDataRangeState({ ...dataRange, end: new Date('2022-04-20') });
     }
   };
 
@@ -34,7 +34,8 @@ function DatePicker() {
           startDate={dataRange.start}
           endDate={dataRange.end}
           selectsRange
-          maxDate={new Date()}
+          minDate={new Date('2022-02-01')}
+          maxDate={new Date('2022-04-20')}
           locale={ko}
         />
       </div>

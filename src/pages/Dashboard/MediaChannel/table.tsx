@@ -1,4 +1,4 @@
-import { DataItem } from 'types/global.d';
+import { DataItem, ITotalData } from 'types/global.d';
 import styles from './table.module.scss';
 
 const columns = [
@@ -12,59 +12,62 @@ const columns = [
   '클릭당비용(CPC)',
 ];
 
-function cal(totalData: DataItem[]) {
-  const data: Record<string, DataItem> = {
+interface ITableData {
+  channel: string;
+  date: string;
+  cost: number;
+  sales: number;
+  roas: number;
+  imp: number;
+  click: number;
+  ctr: number;
+  cpc: number;
+}
+function cal(totalData: ITotalData[]) {
+  const data: Record<string, ITableData> = {
     facebook: {
       channel: 'facebook',
       date: '',
+      cost: 0,
+      sales: 0,
+      roas: 0,
       imp: 0,
       click: 0,
-      cost: 0,
-      convValue: 0,
       ctr: 0,
-      cvr: 0,
       cpc: 0,
-      cpa: 0,
-      roas: 0,
     },
     naver: {
       channel: 'naver',
       date: '',
+      cost: 0,
+      sales: 0,
+      roas: 0,
       imp: 0,
       click: 0,
-      cost: 0,
-      convValue: 0,
       ctr: 0,
-      cvr: 0,
       cpc: 0,
-      cpa: 0,
-      roas: 0,
     },
     google: {
       channel: 'google',
       date: '',
+      cost: 0,
+      sales: 0,
+      roas: 0,
       imp: 0,
       click: 0,
-      cost: 0,
-      convValue: 0,
       ctr: 0,
-      cvr: 0,
       cpc: 0,
-      cpa: 0,
-      roas: 0,
     },
     kakao: {
       channel: 'kakao',
       date: '',
+      cost: 0,
+      sales: 0,
+      roas: 0,
       imp: 0,
       click: 0,
-      cost: 0,
-      convValue: 0,
       ctr: 0,
-      cvr: 0,
       cpc: 0,
-      cpa: 0,
-      roas: 0,
     },
   };
 
@@ -72,17 +75,16 @@ function cal(totalData: DataItem[]) {
     data[d.channel].imp += d.imp;
     data[d.channel].click += d.click;
     data[d.channel].cost += d.cost;
-    data[d.channel].convValue += d.convValue;
     data[d.channel].ctr += d.ctr;
     data[d.channel].cpc += d.cpc;
     data[d.channel].roas += d.roas;
+    data[d.channel].sales += d.sales;
   });
-
   return data;
 }
 
 interface Props {
-  totalData: DataItem[];
+  totalData: ITotalData[];
 }
 
 function Table({ totalData }: Props) {
