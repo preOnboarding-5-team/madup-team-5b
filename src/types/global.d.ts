@@ -11,3 +11,7 @@ export interface DataItem {
   cpa: number;
   roas: number;
 }
+
+export interface ITotalData extends DataItem {
+  sales: number;
+}

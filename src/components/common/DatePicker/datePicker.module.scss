@@ -1,0 +1,40 @@
+@use 'src/styles/mixins/typography';
+
+.datePicker {
+  display: flex;
+  width: 16.375rem;
+
+  .pickers {
+    display: flex;
+    align-items: center;
+
+    .dateWrapper {
+      display: flex;
+      align-items: center;
+
+      input {
+        display: inline;
+        width: 13.5625rem;
+        cursor: pointer;
+        caret-color: transparent;
+
+        @include typography.font(0.875rem, 500, 1rem);
+      }
+    }
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.625rem;
+
+    svg {
+      width: 0.75rem;
+      height: 0.5rem;
+      margin-left: 0;
+    }
+  }
+}
