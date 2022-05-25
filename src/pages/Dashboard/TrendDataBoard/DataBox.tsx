@@ -105,7 +105,7 @@ function DataBox({ filteredData, filteredBeforeData }: IProps) {
           </div>
         </div>
         <div className={styles.transeData}>
-          {compareValue(sumPickDatesValue.click, sumBeforeDatesValue.click)}
+          {compareValue(sumPickDatesValue.click, sumBeforeDatesValue.click)} 회
         </div>
       </li>
       <li className={styles.dataBox}>

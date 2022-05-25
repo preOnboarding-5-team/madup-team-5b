@@ -37,9 +37,9 @@
         font-size: 14px;
         font-weight: 14px;
         line-height: 14px;
-        color: colors.$GREY800;
+        color: colors.$grey_800;
         background: colors.$WHITE;
-        border: 1px solid colors.$GREY100;
+        border: 1px solid colors.$grey_100;
         border-radius: 10px;
 
         .selectIcon {
@@ -56,7 +56,7 @@
         text-align: center;
         pointer-events: none;
         background: colors.$WHITE;
-        border: 1px solid colors.$GREY100;
+        border: 1px solid colors.$grey_100;
         border-radius: 10px;
         opacity: 0;
         transition: 0.3s;
@@ -68,7 +68,7 @@
           width: 100%;
           padding: 12px 15px;
           font-size: 14px;
-          color: colors.$GREY800;
+          color: colors.$grey_800;
           cursor: pointer;
           border-radius: 10px;
 
@@ -98,7 +98,7 @@
       font-size: 14px;
       font-weight: 700;
       color: colors.$WHITE;
-      background: colors.$PRIMARY;
+      background: colors.$Primary;
       border-radius: 10px;
     }
   }
@@ -119,7 +119,7 @@
       padding: 20px;
       margin: 20px 20px 0 0;
       background: colors.$WHITE;
-      border: 1px solid colors.$GREY100;
+      border: 1px solid colors.$grey_100;
       border-radius: 10px;
 
       p {
@@ -131,11 +131,11 @@
         font-style: normal;
         font-weight: 700;
         line-height: 19px;
-        color: colors.$GREY800;
+        color: colors.$grey_800;
       }
 
       ul {
-        border-top: 1px solid colors.$GREY50;
+        border-top: 1px solid colors.$grey_50;
 
         li {
           dl {
@@ -147,21 +147,21 @@
             font-size: 12px;
             font-style: normal;
             line-height: 14px;
-            border-bottom: 1px solid colors.$GREY50;
+            border-bottom: 1px solid colors.$grey_50;
 
             .title {
               width: 40%;
               height: 13px;
               font-weight: 500;
               line-height: 13px;
-              color: colors.$GREY300;
+              color: colors.$grey_300;
             }
 
             .content {
               width: 60%;
               height: 13px;
               font-weight: 700;
-              color: colors.$GREY800;
+              color: colors.$grey_800;
             }
           }
         }
@@ -176,9 +176,9 @@
         margin-top: 20px;
         font-size: 14px;
         line-height: 16px;
-        color: colors.$GREY800;
+        color: colors.$grey_800;
         background: colors.$WHITE;
-        border: 1px solid colors.$GREY100;
+        border: 1px solid colors.$grey_100;
         border-radius: 10px;
       }
     }
