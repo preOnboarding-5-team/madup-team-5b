@@ -29,15 +29,11 @@ function TrendDataBoard() {
     <div className={styles.trandDataBoardWrapper}>
       <h2>통합 광고 현황</h2>
       <div className={styles.trandDataBoard}>
-        <div className={styles.dataBoxWrapper}>
-          <DataBox
-            filteredData={filteredData}
-            filteredBeforeData={filteredBeforeData}
-          />
-        </div>
-        <div className={styles.chratBox}>
-          <TrendChart filteredData={filteredData} />
-        </div>
+        <DataBox
+          filteredData={filteredData}
+          filteredBeforeData={filteredBeforeData}
+        />
+        <TrendChart filteredData={filteredData} />
       </div>
     </div>
   );

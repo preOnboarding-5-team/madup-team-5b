@@ -22,52 +22,38 @@ function ManagementItem(manageItem: IProps) {
       <p>
         {adType === 'web' ? '웹광고' : '앱광고'}_{title}
       </p>
-      <ul>
-        <li>
-          <dl>
-            <dt className={styles.title}>상태</dt>
-            <dd className={styles.content}>
-              {status === 'active' ? '진행중' : '중단됨'}
-            </dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt className={styles.title}>광고 생성일</dt>
-            <dd className={styles.content}>
-              {startDate.split('T')[0]}{' '}
-              {endDate ? `(${endDate.split('T')[0]})` : ''}
-            </dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt className={styles.title}>일 희망 예산</dt>
-            <dd className={styles.content}>{convertMoney(budget)}원</dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt className={styles.title}>광고 수익률</dt>
-            <dd className={styles.content}>{report.roas}%</dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt className={styles.title}>매출</dt>
-            <dd className={styles.content}>
-              {convertMoney(report.convValue)}원
-            </dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt className={styles.title}>광고 비용</dt>
-            <dd className={styles.content}>{convertMoney(report.cost)}원</dd>
-          </dl>
-        </li>
-      </ul>
-      <button type="button" className={styles.btnModify} data-value={id}>
+      <dl>
+        <div>
+          <dt className={styles.title}>상태</dt>
+          <dd className={styles.content}>
+            {status === 'active' ? '진행중' : '중단됨'}
+          </dd>
+        </div>
+        <div>
+          <dt className={styles.title}>광고 생성일</dt>
+          <dd className={styles.content}>
+            {startDate.split('T')[0]}{' '}
+            {endDate ? `(${endDate.split('T')[0]})` : ''}
+          </dd>
+        </div>
+        <div>
+          <dt className={styles.title}>일 희망 예산</dt>
+          <dd className={styles.content}>{convertMoney(budget)}원</dd>
+        </div>
+        <div>
+          <dt className={styles.title}>광고 수익률</dt>
+          <dd className={styles.content}>{report.roas}%</dd>
+        </div>
+        <div>
+          <dt className={styles.title}>매출</dt>
+          <dd className={styles.content}>{convertMoney(report.convValue)}원</dd>
+        </div>
+        <div>
+          <dt className={styles.title}>광고 비용</dt>
+          <dd className={styles.content}>{convertMoney(report.cost)}원</dd>
+        </div>
+      </dl>
+      <button type="button" className={styles.modifyButton} data-value={id}>
         수정하기
       </button>
     </div>

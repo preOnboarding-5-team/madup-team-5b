@@ -9,7 +9,7 @@ type TDropdownList = {
   type: string;
   setSelected: SetterOrUpdater<string>;
   list: string[];
-  setList: SetterOrUpdater<string[]>;
+  setList?: SetterOrUpdater<string[]>;
   itemAdder: boolean;
   isOpen: boolean;
   toggleList: () => void;

@@ -1,14 +1,14 @@
 @mixin breakpoint($vw) {
   @if $vw == 'lg' {
-    @media (max-width: 1023px) {
+    @media (max-width: 1200px) {
       @content;
     }
   } @else if $vw == 'md' {
-    @media (max-width: 767px) {
+    @media (max-width: 800px) {
       @content;
     }
   } @else if $vw == 'sm' {
-    @media (max-width: 575px) {
+    @media (max-width: 600px) {
       @content;
     }
   } @else if $vw == 'xs' {

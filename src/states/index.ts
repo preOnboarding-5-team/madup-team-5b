@@ -8,7 +8,7 @@ import {
   trendFirstState,
   trendSecondState,
   trendTermState,
-  adListState,
+  adListStatusState,
 } from './Atoms';
 
 import { refinedDateRangeState } from './Selectors';
@@ -20,7 +20,7 @@ export {
   trendFirstState,
   trendSecondState,
   trendTermState,
-  adListState,
+  adListStatusState,
 };
 
 export { refinedDateRangeState };

@@ -1,14 +1,11 @@
-import { MouseEvent, useState } from 'react';
 import { AdListData } from 'utils';
-import { ArrowDownIcon, CheckIcon } from 'assets';
-import cx from 'classnames';
-import { adStatusSelectState } from 'states/Atoms';
-import useRecoil from 'hooks/useRecoil';
-import styles from './adManagement.module.scss';
+import { useRecoil } from 'hooks';
+import { adListStatusState } from 'states';
 
+import Dropdown from 'components/common/Dropdown';
 import ManagementItem from './managementItem';
 
-const SHOW_STATUS = ['전체 광고', '진행중', '중단됨'];
+import styles from './adManagement.module.scss';
 
 export interface IProps {
   id: number;
@@ -26,22 +23,14 @@ export interface IProps {
 }
 
 function AdManagement() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectStatus, setSelectStatus] = useRecoil(adStatusSelectState);
+  const [adListStatus, setAdListStatus] = useRecoil(adListStatusState);
 
-  const handledropdown = () => {
-    setIsOpen((prev) => !prev);
-  };
-
-  const handleSelectStatus = (e: MouseEvent<HTMLButtonElement>) => {
-    setSelectStatus(e.currentTarget.dataset.value || '');
-    setIsOpen((prev) => !prev);
-  };
+  const SHOW_STATUS = ['전체 광고', '진행중', '중단됨'];
 
   const cardStructure = AdListData.ads
     .filter((data) => {
-      if (selectStatus === '진행중') return data.status === 'active';
-      if (selectStatus === '중단됨') return data.status === 'ended';
+      if (adListStatus === '진행중') return data.status === 'active';
+      if (adListStatus === '중단됨') return data.status === 'ended';
       return data;
     })
     .map((manageItem) => {
@@ -84,7 +73,24 @@ function AdManagement() {
           광고 만들기
         </button>
       </div>
-      <div className={styles.bottomContents}>{cardStructure}</div>
+      <div className={styles.container}>
+        <div className={styles.topContents}>
+          <Dropdown
+            type="medium"
+            selected={adListStatus}
+            setSelected={setAdListStatus}
+            list={SHOW_STATUS}
+          />
+          <button
+            type="button"
+            className={styles.btnMakeAd}
+            data-value="create"
+          >
+            광고 만들기
+          </button>
+        </div>
+        <div className={styles.bottomContents}>{cardStructure}</div>
+      </div>
     </div>
   );
 }
