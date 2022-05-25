@@ -4,15 +4,11 @@
 
 .adManagement {
   width: 100%;
-  height: 75.5rem;
 
   .titleContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
     height: 5rem;
-    padding: 1.5625rem 2.5rem;
+    padding: 2.3125rem 0;
 
     .title {
       @include typography.font(1.625rem, 900, 1.875rem);
@@ -20,216 +16,98 @@
   }
 
   .container {
-    width: 95%;
-    max-width: 1039px;
-    height: 100%;
+    padding: 2.5rem;
+    margin: 1.875rem 0;
+    background: colors.$white;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.25rem 0.625rem rgb(0 0 0 / 4%);
 
-    // height: 1020px;
-    padding: 40px 20px 40px 40px;
-    margin: 20px;
-    background: white;
-    border: 1px solid rgb(248 244 244);
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgb(0 0 0 / 4%);
+    @include responsive.breakpoint('md') {
+      padding: 1.25rem;
+    }
 
     .topContents {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      padding-bottom: 20px;
-
-      // font-family: Roboto;
+      margin-bottom: 2.5rem;
       font-style: normal;
-      line-height: 16px;
-
-      .selectWrapper {
-        position: relative;
-
-        .select {
-          box-sizing: border-box;
-          display: flex;
-          justify-content: space-between;
-          width: 123px;
-          height: 40px;
-          padding: 12px 20px;
-          font-size: 14px;
-          font-weight: 14px;
-          line-height: 14px;
-          color: colors.$grey-800;
-          background: colors.$white;
-          border: 1px solid colors.$grey-100;
-          border-radius: 10px;
-
-          .selectIcon {
-            width: 12px;
-            height: 13px;
-          }
-        }
-
-        .selectList {
-          position: absolute;
-          top: 45px;
-          width: 123px;
-          padding: 5px;
-          text-align: center;
-          pointer-events: none;
-          background: colors.$white;
-          border: 1px solid colors.$grey-100;
-          border-radius: 10px;
-          opacity: 0;
-          transition: 0.3s;
-          transform: translateY(-1%);
-
-          .selectContent {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 12px 15px;
-            font-size: 14px;
-            color: colors.$grey-800;
-            cursor: pointer;
-            border-radius: 10px;
-
-            .selectContentIcon {
-              height: 14px;
-            }
-
-            &:hover {
-              background: whitesmoke;
-            }
-          }
-        }
-
-        .isOpen {
-          pointer-events: auto;
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+      line-height: 1rem;
 
       .btnMakeAd {
-        box-sizing: border-box;
-        width: 108px;
-        min-width: 108px;
-        height: 40px;
-        padding: 12px 20px;
-        font-size: 14px;
-        font-weight: 700;
+        padding: 0.75rem 1.25rem;
         color: colors.$white;
         background: colors.$primary;
-        border-radius: 10px;
+        border-radius: 0.625rem;
+
+        @include typography.font(0.875rem, 700, 1rem);
       }
     }
 
     .bottomContents {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
       width: 100%;
+
+      @include responsive.breakpoint('lg') {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      @include responsive.breakpoint('sm') {
+        grid-template-columns: repeat(1, 1fr);
+      }
 
       .adCard {
         box-sizing: border-box;
-
-        // width: 45%;
-        width: 305px;
-        min-width: 245px;
-        max-width: 305px;
-        height: 420px;
-        padding: 20px;
-        margin: 20px 20px 0 0;
+        padding: 1.25rem;
         background: colors.$white;
-        border: 1px solid colors.$grey-100;
-        border-radius: 10px;
+        border: 0.0625rem solid colors.$grey-100;
+        border-radius: 0.625rem;
 
         p {
-          height: 19px;
-          margin: 20px 0 40px;
-
-          // font-family: Roboto;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 19px;
+          margin: 1.25rem 0 2.5rem;
           color: colors.$grey-800;
+
+          @include typography.font(1rem, 700, 1.1875rem);
         }
 
-        ul {
-          border-top: 1px solid colors.$grey-50;
+        dl {
+          border-top: 0.0625rem solid colors.$grey-50;
 
-          li {
-            dl {
-              display: flex;
-              justify-content: space-between;
-              padding: 13px 0;
+          div {
+            display: flex;
+            padding: 0.8125rem 0;
+            border-bottom: 0.0625rem solid colors.$grey-50;
 
-              // font-family: Roboto;
-              font-size: 12px;
-              font-style: normal;
-              line-height: 14px;
-              border-bottom: 1px solid colors.$grey-50;
+            .title {
+              width: 40%;
+              color: colors.$grey-300;
 
-              .title {
-                width: 40%;
-                height: 13px;
-                font-weight: 500;
-                line-height: 13px;
-                color: colors.$grey-300;
-              }
+              @include typography.font(0.75rem, 500, 0.875rem);
+            }
 
-              .content {
-                width: 60%;
-                height: 13px;
-                font-weight: 700;
-                color: colors.$grey-800;
-              }
+            .content {
+              width: 60%;
+              color: colors.$grey-800;
+
+              @include typography.font(0.75rem, 700, 0.875rem);
             }
           }
         }
 
-        .btnModify {
-          box-sizing: border-box;
-          align-items: flex-start;
-          width: 92px;
-          height: 40px;
-          padding: 12px 20px;
-          margin-top: 20px;
-          font-size: 14px;
-          line-height: 16px;
+        .modifyButton {
+          padding: 0.75rem 1.25rem;
+          margin-top: 1.25rem;
           color: colors.$grey-800;
           background: colors.$white;
-          border: 1px solid colors.$grey-100;
-          border-radius: 10px;
+          border: 0.0625rem solid colors.$grey-100;
+          border-radius: 0.625rem;
+
+          @include typography.font(0.875rem, 700, 1rem);
         }
       }
     }
-
-    // @include responsive.after(ML) {
-    //   background-color: turquoise;
-
-    //   .bottomContents {
-    //     .adCard {
-    //       width: 30%;
-    //     }
-    //   }
-    // }
-
-    // // @include responsive.after(SD) {
-    // //   background-color: red;
-
-    // //   .bottomContents {
-    // //     .adCard {
-    // //       width: 30%;
-    // //     }
-    // //   }
-    // // }
-
-    // @include responsive.after(LD) {
-    //   background-color: antiquewhite;
-
-    //   .bottomContents {
-    //     .adCard {
-    //       width: 305px;
-    //     }
-    //   }
-    // }
   }
 }

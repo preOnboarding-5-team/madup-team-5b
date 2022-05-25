@@ -11,7 +11,7 @@ type TDropdown = {
   selected: string;
   setSelected: SetterOrUpdater<string>;
   list: string[];
-  setList: SetterOrUpdater<string[]>;
+  setList?: SetterOrUpdater<string[]>;
   color?: string;
   itemAdder?: boolean;
 };
@@ -32,7 +32,7 @@ function Dropdown({
   };
 
   return (
-    <>
+    <button type="button" className={styles.dropdownContainer}>
       <button
         type="button"
         className={cx(styles.button, styles.dropdown, styles[type])}
@@ -53,7 +53,7 @@ function Dropdown({
         isOpen={isOpen}
         toggleList={toggleList}
       />
-    </>
+    </button>
   );
 }
 

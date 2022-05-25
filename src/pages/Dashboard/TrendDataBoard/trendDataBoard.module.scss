@@ -1,98 +1,80 @@
 @use 'src/styles/mixins/typography';
+@use 'src/styles/mixins/responsive';
 @use '/src/styles/constants/colors';
 
 .trandDataBoardWrapper {
   width: 100%;
-  height: 743px;
+  height: 46.4375rem;
 
   h2 {
-    position: absolute;
-    top: 21px;
-    left: 40px;
-    width: 97px;
-    height: 19px;
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 19px;
-    color: #3a474e;
+    padding-bottom: 1.25rem;
+    color: colors.$grey-800;
+
+    @include typography.font(1rem, 700, 1.1875rem);
   }
 
   .trandDataBoard {
-    position: absolute;
-    top: 60px;
-    left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 1039px;
-    height: 654px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgb(0 0 0 / 4%);
+    width: 100%;
+    height: 40.875rem;
+    background: colors.$white;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.25rem 0.625rem rgb(0 0 0 / 4%);
 
     ul {
-      display: flex;
+      display: grid;
       flex-wrap: wrap;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.375rem;
+      height: 50%;
+      padding: 2.5rem 2.5rem 0;
+      overflow: auto;
+
+      @include responsive.breakpoint('lg') {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1.25rem 1.25rem 0;
+      }
+
+      @include responsive.breakpoint('sm') {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .dataBox {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 1.125rem 2.5rem;
+        background: colors.$white;
+        border: 0.0313rem solid colors.$grey-50;
+        border-radius: 0.625rem;
+
+        @include responsive.breakpoint('lg') {
+          padding: 1rem 2rem;
+        }
+
+        .dataTitle {
+          color: colors.$grey-300;
+
+          @include typography.font(0.75rem, 500, 0.875rem);
+        }
+
+        .dataValue {
+          margin-top: 0.625rem;
+          color: colors.$grey-800;
+
+          @include typography.font(1rem, 700, 1.1875rem);
+        }
+
+        .transeData {
+          flex: none;
+          color: colors.$grey-300;
+
+          @include typography.font(0.75rem, 500, 0.875rem);
+        }
+      }
     }
-
-    .chartBox {
-      width: 960px;
-      height: 300px;
-      margin: 40px 0;
-    }
-  }
-}
-
-.dataBox {
-  position: relative;
-  top: 30px;
-  left: 50px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  width: 304px;
-  height: 79px;
-  padding: 18px 40px;
-  margin: 5px;
-  background: #fff;
-  border: 0.5px solid #edeff1;
-  border-radius: 10px;
-
-  .dataTitle {
-    top: 18px;
-    left: 40px;
-    width: 35px;
-    height: 14px;
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 14px;
-    color: #94a2ad;
-  }
-
-  .dataValue {
-    margin-top: 10px;
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 19px;
-    color: #3a474e;
-  }
-
-  .transeData {
-    flex: none;
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 14px;
-    color: #94a2ad;
   }
 }

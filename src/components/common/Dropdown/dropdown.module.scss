@@ -1,67 +1,79 @@
 @use 'src/styles/constants/colors';
 @use 'src/styles/mixins/typography';
 
-.dropdown {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.dropdownContainer {
+  position: static;
 
-  .name {
-    @include typography.font(1rem, 700, 1.1875rem);
-  }
-}
-
-.large,
-.medium,
-.small {
-  &.inputContainer {
-    background-color: colors.$grey-50;
-  }
-
-  &:hover {
-    background: colors.$grey-50;
+  .dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     .name {
-      color: colors.$primary;
+      @include typography.font(1rem, 700, 1.1875rem);
     }
   }
 
-  .invalid::after {
-    color: colors.$secondary-02;
-    content: '중복된 이름입니다.';
+  .listContainer {
+    position: absolute;
+    background: colors.$white;
   }
-}
 
-.large {
-  width: 15rem;
-  height: 3.75rem;
-  padding: 1.375rem 1.25rem;
-  cursor: pointer;
-  border: 0.0625rem solid colors.$grey-100;
-  border-radius: 0.625rem;
+  .large,
+  .medium,
+  .small {
+    display: flex;
+    align-items: center;
 
-  .name {
-    @include typography.font(1rem, 700, 1.1875rem);
+    &.inputContainer {
+      background-color: colors.$grey-50;
+    }
+
+    &:hover {
+      background: colors.$grey-50;
+
+      .name {
+        color: colors.$primary;
+      }
+    }
+
+    .invalid::after {
+      color: colors.$secondary-02;
+      content: '중복된 이름입니다.';
+    }
   }
-}
 
-.medium {
-  width: 7.6875rem;
-  height: 2.5rem;
-  padding: 0.75rem 1.25rem;
-  border: 0.0625rem solid colors.$grey-100;
-  border-radius: 0.625rem;
+  .large {
+    width: 15rem;
+    height: 3.75rem;
+    padding: 1.375rem 1.25rem;
+    cursor: pointer;
+    border: 0.0625rem solid colors.$grey-100;
+    border-radius: 0.625rem;
 
-  .name {
-    @include typography.font(0.875rem, 500, 1rem);
+    .name {
+      @include typography.font(1rem, 700, 1.1875rem);
+    }
   }
-}
 
-.small {
-  width: 3.75rem;
-  height: 1.5rem;
+  .medium {
+    width: 7.6875rem;
+    height: 2.5rem;
+    padding: 0.75rem 1.25rem;
+    border: 0.0625rem solid colors.$grey-100;
+    border-radius: 0.625rem;
 
-  .name {
-    @include typography.font(0.875rem, 500, 1rem);
+    .name {
+      @include typography.font(0.875rem, 500, 1rem);
+    }
+  }
+
+  .small {
+    width: 3.75rem;
+    height: 1.5rem;
+
+    .name {
+      @include typography.font(0.875rem, 500, 1rem);
+    }
   }
 }

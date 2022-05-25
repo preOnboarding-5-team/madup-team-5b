@@ -8,7 +8,7 @@ type TItemAdder = {
   type: string;
   label: string;
   list: string[];
-  setList: SetterOrUpdater<string[]>;
+  setList?: SetterOrUpdater<string[]>;
 };
 
 function ItemAdder({ type, label, list, setList }: TItemAdder) {
@@ -24,7 +24,9 @@ function ItemAdder({ type, label, list, setList }: TItemAdder) {
       e.currentTarget.classList.add(styles.invalid);
     } else {
       const newList = [...list, target.value];
-      setList(newList);
+      if (setList) {
+        setList(newList);
+      }
       toggleIsAdding();
       e.currentTarget.reset();
     }

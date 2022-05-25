@@ -4,7 +4,7 @@
 
 .snb {
   display: flex;
-  width: 100%;
+  justify-content: center;
   max-width: 20rem;
   background: colors.$white;
   box-shadow: 0.25rem 0 0.625rem rgb(0 0 0 / 4%);
@@ -14,6 +14,13 @@
     flex-direction: column;
     height: 61.5rem;
     padding: 0 2.5rem;
+
+    @include responsive.breakpoint('lg') {
+      padding: 0 1.5rem;
+    }
+    @include responsive.breakpoint('md') {
+      padding: 0 1rem;
+    }
 
     .logo {
       height: 9.375rem;
