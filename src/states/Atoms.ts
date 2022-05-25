@@ -54,5 +54,4 @@ export {
   trendTermState,
   themeState,
   adListStatusState,
-
 };
