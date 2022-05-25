@@ -1,8 +1,8 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { AdListData } from 'utils';
 import { ArrowDownIcon, CheckIcon } from 'assets';
 import cx from 'classnames';
-import { adListState } from 'states/Atoms';
+import { adListState, adManagementItemState } from 'states/Atoms';
 import { useRecoil } from 'hooks/useRecoil';
 import styles from './adManagement.module.scss';
 
@@ -26,28 +26,62 @@ export interface IProps {
 }
 
 function AdManagement() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectStatus, setSelectStatus] = useRecoil(adListState);
+  const [managementItemStatus, setManagementItemStatus] = useRecoil(
+    adManagementItemState
+  );
+  const [isNew, setIsNew] = useState(0);
 
   const handledropdown = () => {
-    setIsOpen((prev) => !prev);
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const handleSelectStatus = (e: MouseEvent<HTMLButtonElement>) => {
     setSelectStatus(e.currentTarget.dataset.value || '');
-    setIsOpen((prev) => !prev);
+    setIsDropdownOpen((prev) => !prev);
   };
 
-  const cardStructure = AdListData.ads
+  const cardStructure = managementItemStatus.ads
     .filter((data) => {
       if (selectStatus === '진행중') return data.status === 'active';
       if (selectStatus === '중단됨') return data.status === 'ended';
       return data;
     })
     .map((manageItem) => {
-      return <ManagementItem {...manageItem} key={manageItem.id} />;
+      return (
+        <ManagementItem
+          manageItem={manageItem}
+          key={manageItem.id}
+          isNew={isNew}
+          setIsNew={setIsNew}
+        />
+      );
     });
 
+  const newItem = {
+    id: managementItemStatus.count + 1,
+    adType: '',
+    title: '',
+    budget: 0,
+    status: '',
+    startDate: '',
+    endDate: '',
+    report: {
+      cost: 0,
+      convValue: 0,
+      roas: 0,
+    },
+  };
+
+  const handleAddBtn = (e: MouseEvent<HTMLButtonElement>) => {
+    setManagementItemStatus((managementItemStatus) => ({
+      ...managementItemStatus,
+      ads: [...managementItemStatus.ads, newItem],
+      count: managementItemStatus.count + 1,
+    }));
+    setIsNew(managementItemStatus.count + 1);
+  };
   return (
     <div className={styles.adManagement}>
       <div className={styles.topContents}>
@@ -60,7 +94,11 @@ function AdManagement() {
             <span>{selectStatus}</span>
             <ArrowDownIcon className={styles.selectIcon} />
           </button>
-          <ul className={cx(styles.selectList, { [styles.isOpen]: isOpen })}>
+          <ul
+            className={cx(styles.selectList, {
+              [styles.isOpen]: isDropdownOpen,
+            })}
+          >
             {SHOW_STATUS.map((item: string) => {
               return (
                 <li key={item}>
@@ -80,7 +118,12 @@ function AdManagement() {
             })}
           </ul>
         </div>
-        <button type="button" className={styles.btnMakeAd} data-value="create">
+        <button
+          type="button"
+          className={styles.btnMakeAd}
+          data-value="create"
+          onClick={handleAddBtn}
+        >
           광고 만들기
         </button>
       </div>

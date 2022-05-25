@@ -144,6 +144,10 @@
         font-weight: 700;
         line-height: 19px;
         color: colors.$grey_800;
+
+        .adName {
+          width: 100%;
+        }
       }
 
       ul {
@@ -153,6 +157,7 @@
           dl {
             display: flex;
             justify-content: space-between;
+            width: 100%;
             padding: 13px 0;
 
             // font-family: Roboto;
@@ -162,7 +167,7 @@
             border-bottom: 1px solid colors.$grey_50;
 
             .title {
-              width: 40%;
+              width: 5rem;
               height: 13px;
               font-weight: 500;
               line-height: 13px;
@@ -170,59 +175,58 @@
             }
 
             .content {
-              width: 60%;
-              height: 13px;
+              width: 10rem;
+              height: 14px;
+              font-size: 12px;
               font-weight: 700;
+              line-height: 14px;
               color: colors.$grey_800;
+              text-align: left;
+
+              .contentInput {
+                height: 16px;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 16px;
+                color: colors.$grey_800;
+                text-align: left;
+                border: 1px solid colors.$grey_800;
+                border-radius: 2px;
+              }
             }
           }
         }
       }
 
-      .btnModify {
-        box-sizing: border-box;
-        align-items: flex-start;
-        width: 92px;
-        height: 40px;
-        padding: 12px 20px;
-        margin-top: 20px;
-        font-size: 14px;
-        line-height: 16px;
-        color: colors.$grey_800;
-        background: colors.$WHITE;
-        border: 1px solid colors.$grey_100;
-        border-radius: 10px;
+      .btnWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .btnModify,
+        .btnCancel {
+          box-sizing: border-box;
+          align-items: flex-start;
+          width: 92px;
+          height: 40px;
+          padding: 12px 20px;
+          margin-top: 20px;
+          font-size: 14px;
+          line-height: 16px;
+          color: colors.$grey_800;
+          background: colors.$WHITE;
+          border: 1px solid colors.$grey_100;
+          border-radius: 10px;
+        }
+
+        .isModify {
+          color: colors.$WHITE;
+          background: colors.$Primary;
+        }
       }
     }
+
+    .isModify {
+      border: 1px solid colors.$Primary;
+    }
   }
-
-  // @include responsive.after(ML) {
-  //   background-color: turquoise;
-
-  //   .bottomContents {
-  //     .adCard {
-  //       width: 30%;
-  //     }
-  //   }
-  // }
-
-  // // @include responsive.after(SD) {
-  // //   background-color: red;
-
-  // //   .bottomContents {
-  // //     .adCard {
-  // //       width: 30%;
-  // //     }
-  // //   }
-  // // }
-
-  // @include responsive.after(LD) {
-  //   background-color: antiquewhite;
-
-  //   .bottomContents {
-  //     .adCard {
-  //       width: 305px;
-  //     }
-  //   }
-  // }
 }
