@@ -68,7 +68,9 @@
       }
 
       .adCard {
-        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         padding: 1.25rem;
         background: colors.$white;
         border: 0.0625rem solid colors.$grey-100;
@@ -79,6 +81,7 @@
         }
 
         p {
+          display: block;
           margin: 1.25rem 0 2.5rem;
           color: colors.$grey-800;
 
@@ -87,8 +90,8 @@
 
         dl {
           display: flex;
+          flex-direction: column;
           justify-content: space-between;
-          padding: 13px 0;
           border-top: 0.0625rem solid colors.$grey-50;
 
           div {

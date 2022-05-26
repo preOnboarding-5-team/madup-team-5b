@@ -11,6 +11,7 @@ import {
 import { useRecoil } from 'hooks';
 
 import Dropdown from 'components/common/Dropdown';
+import Spinner from 'components/common/Spinner';
 import DataBox from './DataBox';
 import TrendChart from './TrendChart';
 import { ConvertDate } from './convertDate';
@@ -23,8 +24,19 @@ function TrendDataBoard() {
   const [trendTerm, setTrendTerm] = useRecoil(trendTermState);
   const [start, end] = useRecoilValue(refinedDateRangeState);
 
-  const trendsName = ['ROAS', '광고비', '노출수', '클릭수', '전환수', '매출'];
+  const [isLoading, setIsLoading] = useState(true);
+
+  const trendsName = [
+    '선택안함',
+    'ROAS',
+    '광고비',
+    '노출수',
+    '클릭수',
+    '전환수',
+    '매출',
+  ];
   const trendColor = [
+    '',
     '#4fadf7',
     '#85da45',
     '#ac8af8',
@@ -66,39 +78,55 @@ function TrendDataBoard() {
     }
   }, [end, start]);
 
+  useEffect(() => {
+    if (start && end) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    }
+  }, [end, start]);
+
   return (
     <div className={styles.trandDataBoardWrapper}>
       <h2>통합 광고 현황</h2>
       <div className={styles.trandDataBoard}>
-        <DataBox
-          filteredData={filteredData}
-          filteredBeforeData={filteredBeforeData}
-        />
-        <div className={styles.dropdowns}>
-          <div className={styles.categories}>
-            <Dropdown
-              type="medium"
-              selected={firstTrend.name}
-              setSelected={setFirstTrend}
-              list={list}
-              color={firstTrend.color}
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            <DataBox
+              filteredData={filteredData}
+              filteredBeforeData={filteredBeforeData}
             />
-            <Dropdown
-              type="medium"
-              selected={secondTrend.name}
-              setSelected={setSecondTrend}
-              list={list}
-              color={secondTrend.color}
-            />
-          </div>
-          <Dropdown
-            type="small"
-            selected={trendTerm}
-            setSelected={setTrendTerm}
-            list={terms}
-          />
-        </div>
-        <TrendChart filteredData={filteredData} />
+
+            <div className={styles.dropdowns}>
+              <div className={styles.categories}>
+                <Dropdown
+                  type="medium"
+                  selected={firstTrend.name}
+                  setSelected={setFirstTrend}
+                  list={list.slice(1)}
+                  color={firstTrend.color}
+                />
+                <Dropdown
+                  type="medium"
+                  selected={secondTrend.name}
+                  setSelected={setSecondTrend}
+                  list={list}
+                  color={secondTrend.color}
+                />
+              </div>
+              <Dropdown
+                type="small"
+                selected={trendTerm}
+                setSelected={setTrendTerm}
+                list={terms}
+              />
+            </div>
+            <TrendChart filteredData={filteredData} />
+          </>
+        )}
       </div>
     </div>
   );

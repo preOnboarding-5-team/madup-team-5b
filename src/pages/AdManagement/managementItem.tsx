@@ -115,26 +115,24 @@ function ManagementItem({ manageItem, isNew, setIsNew }: IItem) {
     placeholder: string,
     name: string
   ) => (
-    <li>
-      <dl>
-        <dt className={styles.title}>{title}</dt>
-        <dd className={styles.content}>
-          {isModify ? (
-            value
-          ) : (
-            <input
-              type="text"
-              className={styles.contentInput}
-              defaultValue={defaultValue}
-              placeholder={placeholder}
-              onChange={handleInputValue}
-              name={name}
-              data-id={String(id) === '' ? isNew : id}
-            />
-          )}
-        </dd>
-      </dl>
-    </li>
+    <div>
+      <dt className={styles.title}>{title}</dt>
+      <dd className={styles.content}>
+        {isModify ? (
+          value
+        ) : (
+          <input
+            type="text"
+            className={styles.contentInput}
+            defaultValue={defaultValue}
+            placeholder={placeholder}
+            onChange={handleInputValue}
+            name={name}
+            data-id={String(id) === '' ? isNew : id}
+          />
+        )}
+      </dd>
+    </div>
   );
   return (
     <form
@@ -159,7 +157,7 @@ function ManagementItem({ manageItem, isNew, setIsNew }: IItem) {
           />
         )}
       </p>
-      <ul>
+      <dl>
         {refac(
           '상태',
           `${replaceValue(status)}`,
@@ -206,7 +204,7 @@ function ManagementItem({ manageItem, isNew, setIsNew }: IItem) {
           '0',
           'cost'
         )}
-      </ul>
+      </dl>
       <div className={styles.btnWrapper}>
         <button
           type="submit"
