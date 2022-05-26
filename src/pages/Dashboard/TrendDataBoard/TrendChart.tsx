@@ -30,7 +30,7 @@ function TrendChart({ filteredData }: IProps) {
   const [secondTrend] = useRecoil(secondTrendState);
 
   const [firstChosenData, setFirstChosenData] = useState<string>('roas');
-  const [secondChosenData, setSecondChosenData] = useState<string>('click');
+  const [secondChosenData, setSecondChosenData] = useState<string>('선택안함');
 
   useEffect(() => {
     const first = {
@@ -42,6 +42,7 @@ function TrendChart({ filteredData }: IProps) {
       매출: 'total',
     }[firstTrend.name];
     const second = {
+      선택안함: '',
       ROAS: 'roas',
       광고비: 'cost',
       노출수: 'imp',
@@ -51,7 +52,9 @@ function TrendChart({ filteredData }: IProps) {
     }[secondTrend.name];
 
     setFirstChosenData(first as string);
-    setSecondChosenData(second as string);
+    if (second !== '') {
+      setSecondChosenData(second as string);
+    }
   }, [firstTrend.name, secondTrend.name]);
 
   const checkItem = ['roas', 'click'];
@@ -94,9 +97,12 @@ function TrendChart({ filteredData }: IProps) {
   const anchors = ['end', 'start'];
   const colors = [firstTrend.color, secondTrend.color];
 
-  const chosenDatas = [kk[firstChosenData], kk[secondChosenData]];
+  const chosenDatas =
+    secondChosenData !== '선택안함'
+      ? [kk[firstChosenData], kk[secondChosenData]]
+      : [kk[firstChosenData]];
 
-  const maxima = chosenDatas.map((dataset) =>
+  const maxima = chosenDatas?.map((dataset) =>
     Math.max(...dataset.map((d) => d.value))
   );
   return (
@@ -112,7 +118,7 @@ function TrendChart({ filteredData }: IProps) {
       }
     >
       <VictoryAxis {...AXIS_UNDER_STYLE} />
-      {chosenDatas.map((d, i) => {
+      {chosenDatas?.map((d, i) => {
         const key = `leftAxis_${i}`;
         return (
           <VictoryAxis
@@ -131,7 +137,7 @@ function TrendChart({ filteredData }: IProps) {
           />
         );
       })}
-      {chosenDatas.map((d, i) => {
+      {chosenDatas?.map((d, i) => {
         const key = `leftLine_${i}`;
         return (
           <VictoryLine

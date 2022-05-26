@@ -27,7 +27,7 @@ const firstTrendState = atom({
 
 const secondTrendState = atom({
   key: 'secondTrendState',
-  default: { name: '클릭수', color: '#ffeb00' },
+  default: { name: '선택안함', color: '' },
 });
 
 const trendTermState = atom({

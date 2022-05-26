@@ -2,6 +2,8 @@ import { MouseEvent } from 'react';
 
 import { IDropdownList } from 'types/global.d';
 import { ArrowDownIcon, CircleIcon } from 'assets';
+import { useRecoil } from 'hooks';
+import { firstTrendState, secondTrendState } from 'states';
 import ItemAdder from './ItemAdder';
 
 import styles from './dropdown.module.scss';
@@ -16,6 +18,8 @@ function DropdownList({
   isOpen,
   toggleList,
 }: IDropdownList) {
+  const [firstTrend] = useRecoil(firstTrendState);
+  const [secondTrend] = useRecoil(secondTrendState);
   const dropdownList = list.map((item, idx) => {
     const key = `dropdownlist-key-${item}-${idx}`;
 
@@ -40,8 +44,10 @@ function DropdownList({
     }
     const onClick = (e: MouseEvent<HTMLLIElement>) => {
       const name = e.currentTarget.dataset.name as string;
-      setSelected({ name, color: item.color });
-      toggleList();
+      if (name !== firstTrend.name && name !== secondTrend.name) {
+        setSelected({ name, color: item.color });
+        toggleList();
+      }
     };
     return (
       <li

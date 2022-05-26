@@ -1,8 +1,9 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { adListStatusState, adManagementItemState } from 'states/Atoms';
 import { useRecoil } from 'hooks';
 
 import Dropdown from 'components/common/Dropdown';
+import Spinner from 'components/common/Spinner';
 import ManagementItem from './managementItem';
 import styles from './adManagement.module.scss';
 
@@ -26,6 +27,7 @@ function AdManagement() {
     adManagementItemState
   );
   const [isNew, setIsNew] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [adListStatus, setAdListStatus] = useRecoil(adListStatusState);
 
@@ -71,6 +73,14 @@ function AdManagement() {
     }));
     setIsNew(managementItemStatus.count + 1);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  if (isLoading) return <Spinner />;
   return (
     <div className={styles.adManagement}>
       <div className={styles.titleContainer}>
