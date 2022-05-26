@@ -23,12 +23,12 @@ const convertNumber = (value: number) => {
 function DataBox({ filteredData, filteredBeforeData }: IProps) {
   const getSumData = (data: FilteredData[]) => {
     const info: Record<string, number> = {
-      roas: 0, // roas
-      cost: 0, // 광고비
-      imp: 0, // 노출수
-      click: 0, // click
-      cvr: 0, // 전환율이지만 전환수 = cvr(전환율) / 100 * click (클릭수) 들어감
-      total: 0, // 매출 = roas / 100 * cost
+      roas: 0,
+      cost: 0,
+      imp: 0,
+      click: 0,
+      cvr: 0,
+      total: 0,
     };
 
     data.forEach((d) => {
@@ -61,7 +61,7 @@ function DataBox({ filteredData, filteredBeforeData }: IProps) {
       </>
     );
   };
-  // 아래 dl, dt, dd 넣을 지
+
   return (
     <ul className={styles.dataBoxContainer}>
       <li className={styles.dataBox}>

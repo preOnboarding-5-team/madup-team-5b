@@ -23,6 +23,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="admanagement" element={<AdManagement />} />
         </Route>
+        <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
     </div>
   );
