@@ -90,10 +90,7 @@ function TrendChart({ filteredData }: IProps) {
   const anchors = ['end', 'start'];
   const colors = [firstTrend.color, secondTrend.color];
 
-  // 수정해야 함
-  // const test = 'click';
   const chosenDatas = [kk[firstChosenData], kk[secondChosenData]];
-  // if (test === 'click') chosenDatas.push(kk[test]);
 
   const maxima = chosenDatas.map((dataset) =>
     Math.max(...dataset.map((d) => d.value))
